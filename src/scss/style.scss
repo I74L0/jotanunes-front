@@ -5,7 +5,7 @@
 @use "vendors/simplebar";
 
 body {
-  background-color: var(--cui-tertiary-bg);
+  background-color: var(--cui-body-bg);
 }
 
 .wrapper {
@@ -56,12 +56,13 @@ body {
   min-height: calc(3rem + 1px); // stylelint-disable-line function-disallowed-list
 }
 
-@include color-mode(dark) {
-  body {
-    background-color: var(--cui-dark-bg-subtle);
-  }
+// Descomentar para habilitar o modo escuro
+// @include color-mode(dark) {
+//   body {
+//     background-color: var(--cui-dark-bg-subtle);
+//   }
 
-  .footer {
-    --cui-footer-bg: var(--cui-body-bg);
-  }
-}
+//   .footer {
+//     --cui-footer-bg: var(--cui-body-bg);
+//   }
+// }

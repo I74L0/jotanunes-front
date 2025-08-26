@@ -9,15 +9,25 @@ import {
   CContainer,
   CForm,
   CFormInput,
+  CHeader,
   CInputGroup,
   CInputGroupText,
   CRow,
 } from '@coreui/react'
+import { Image } from 'primereact/image'
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 
 const Login = () => {
   return (
+    // <div className='flex-container'>
+    //   <CHeader position="sticky" className="mb-4" >
+    //     <Image src="src/assets/images/Logo Vermelha.png" alt="JotaNunes Logo" height={48} />
+    //   </CHeader>
+    //   <CContainer className='flex-grow'>
+    //     aoba
+    //   </CContainer>
+    // </div>
     <div className="bg-body-tertiary min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
         <CRow className="justify-content-center">
