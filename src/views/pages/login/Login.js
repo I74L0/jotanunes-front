@@ -17,21 +17,16 @@ import {
 import { Image } from 'primereact/image'
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
+import './Login-style.css';
 
 const Login = () => {
   return (
-    // <div className='flex-container'>
-    //   <CHeader position="sticky" className="mb-4" >
-    //     <Image src="src/assets/images/Logo Vermelha.png" alt="JotaNunes Logo" height={48} />
-    //   </CHeader>
-    //   <CContainer className='flex-grow'>
-    //     aoba
-    //   </CContainer>
-    // </div>
-    
-    <div className="bg-body-tertiary min-vh-100 d-flex flex-row align-items-center">
-      <CContainer>
-        <CRow className="justify-content-center">
+    <div className="body bg-body-tertiary min-vh-100 d-flex flex-column align-items-center">
+      <CHeader position="sticky" className="d-flex vw-100 p-4" >
+        <Image src="src/assets/images/Logo Vermelha.png" alt="JotaNunes Logo" height={48} />
+      </CHeader>
+      <div className='background fg-1 d-flex justify-content-center align-items-center vw-100'>
+        <CRow className="justify-content-center align-items-center">
           <CCol md={8}>
             <CCardGroup>
               <CCard className="p-4">
@@ -89,7 +84,7 @@ const Login = () => {
             </CCardGroup>
           </CCol>
         </CRow>
-      </CContainer>
+      </div>
     </div>
   )
 }
