@@ -1,3 +1,24 @@
+@media (min-width: 768px) {
+    .col-md-8 {
+        width: 100%;
+    }
+}
+
+.btn-login {
+  background-color: #e23731;
+  color: white;
+  border: none;
+  width: 100%;
+}
+
+.btn-login:hover {
+  background-color: #c02621;
+}
+
+.row-login {
+  --cui-gutter-x: 0 !important;
+}
+
 .fg-1 {
   flex-grow: 1 !important;
 }
