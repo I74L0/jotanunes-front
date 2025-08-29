@@ -25,8 +25,11 @@ const Login = () => {
       <CHeader position="sticky" className="d-flex vw-100 p-4" >
         <Image src="/images/Logo Vermelha.png" alt="JotaNunes Logo" height={48} />
       </CHeader>
-      <div className='background fg-1 d-flex justify-content-center align-items-center vw-100'>
-        <CRow className="justify-content-center align-items-center">
+      <div className='background fg-1 d-flex align-items-center vw-100'>
+        <CCol>
+          <Image src="images/JOTANUNES-PEROLAS-DO-MAR.jpg" alt="JotaNunes Logo" width={700} className='login-image'/>
+        </CCol>
+        <CCol className="d-flex justify-content-center align-items-center">
           <CCol md={8}>
             <CCardGroup>
               <CCard className="p-4">
@@ -51,7 +54,7 @@ const Login = () => {
                       />
                     </CInputGroup>
                     <CRow className='row-login'>
-                      <a href="dashboard">
+                      <a href="#/dashboard">
                         <CButton color="primary" className="btn-login px-4">
                           Login
                         </CButton>
@@ -62,7 +65,7 @@ const Login = () => {
               </CCard>
             </CCardGroup>
           </CCol>
-        </CRow>
+        </CCol>
       </div>
     </div>
   )
