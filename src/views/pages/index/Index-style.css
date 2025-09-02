@@ -1,0 +1,43 @@
+.col {
+  height: -webkit-fill-available;
+}
+
+.btn-login {
+  color: white;
+  border: none;
+  width: 100%;
+}
+
+.btn-login:hover {
+  background-color: var(cui-btn-hover-bg);
+}
+
+.row-login {
+  --cui-gutter-x: 0 !important;
+}
+
+.fg-1 {
+  flex-grow: 1 !important;
+}
+
+.background {
+  background-image: linear-gradient(var(--cui-primary-text-emphasis), var(--cui-primary));
+  flex: 1;
+  display: flex;
+}
+
+.div-body {
+  display: flex;
+  width: 100%;
+  height: -webkit-fill-available;
+}
+
+.col-image {
+  overflow: hidden;
+}
+
+.col-image img {
+  display: block;
+  width: auto;
+  height: 100%;
+}

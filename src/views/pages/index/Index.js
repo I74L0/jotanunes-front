@@ -16,7 +16,7 @@ import {
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
-import './Login-style.css';
+import './Index-style.css';
 
 const Login = () => {
   return (
