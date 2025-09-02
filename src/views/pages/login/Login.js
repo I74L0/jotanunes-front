@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {
   CButton,
   CCard,
@@ -19,6 +19,23 @@ import { cilLockLocked, cilUser } from '@coreui/icons'
 import './Login-style.css';
 
 const Login = () => {
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    // Sua lógica de autenticação aqui (e.g., chamada à API)
+    const isLoginSuccessful = true; // Simulação de login bem-sucedido
+
+    if (isLoginSuccessful) {
+      // Atualizar o estado de autenticação (e.g., salvar token no localStorage)
+      localStorage.setItem('token', 'seuTokenAqui'); 
+      navigate('/dashboard'); 
+    } else {
+      // Lidar com o login com falha
+      alert('Login inválido!');
+    }
+  };
   return (
     <div className="body bg-body-tertiary min-vh-100 d-flex flex-column align-items-center">
       <CHeader position="sticky" className="d-flex vw-100 p-4" >
@@ -33,7 +50,7 @@ const Login = () => {
             <CCardGroup>
               <CCard className="p-4">
                 <CCardBody>
-                  <CForm>
+                  <CForm onSubmit={handleLogin}>
                     <h1>Login</h1>
                     <hr/>
                     <CInputGroup className="mb-3">
@@ -53,11 +70,9 @@ const Login = () => {
                       />
                     </CInputGroup>
                     <CRow className='row-login'>
-                      <Link to="/dashboard">
-                        <CButton color="primary" className="btn-login px-4">
-                          Login
-                        </CButton>
-                      </Link>
+                      <CButton color="primary" className="btn-login px-4" type='submit'>
+                        Login
+                      </CButton>
                     </CRow>
                   </CForm>
                 </CCardBody>

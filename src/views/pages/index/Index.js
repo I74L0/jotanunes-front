@@ -22,7 +22,7 @@ const Login = () => {
   return (
     <div className="body bg-body-tertiary min-vh-100 d-flex flex-column align-items-center">
       <CHeader position="sticky" className="d-flex vw-100 p-4" >
-        <CImage src="/images/Logo Vermelha.png" alt="JotaNunes Logo" height={48} />
+        <CImage src="/images/Logo Preta.png" alt="JotaNunes Logo" height={48} />
       </CHeader>
       <div className='background fg-1 d-flex align-items-center vw-100'>
         <CCol className='col-image'>
