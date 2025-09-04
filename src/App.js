@@ -12,7 +12,8 @@ import './scss/examples.scss'
 const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'))
 
 // Pages
-const Index = React.lazy(() => import('./views/pages/index/Index.js'))
+const Projeto = React.lazy(() => import('src/views/pages/projeto/Projeto.js'))
+const Index = React.lazy(() => import('./views/pages/index/Index'))
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
 const Login = React.lazy(() => import('./views/pages/login/Login'))
 const Register = React.lazy(() => import('./views/pages/register/Register'))
@@ -62,7 +63,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Navigate to="/login" replace />} />
           <Route
-            path="/dashboard/*"
+            path="/*"
             element={
               <ProtectedRoute>
                 <DashboardWithLayout />
@@ -72,9 +73,10 @@ const App = () => {
           <Route exact path="/index" name="Index Page" element={<Index />} />
           <Route exact path="/login" name="Login Page" element={<Login />} />
           <Route exact path="/register" name="Register Page" element={<Register />} />
+          <Route exact path="/projeto" name="Projeto Page" element={<Projeto />} />
           <Route exact path="/404" name="Page 404" element={<Page404 />} />
           <Route exact path="/500" name="Page 500" element={<Page500 />} />
-          <Route path="*" element={<Navigate to="/login" />} />
+          <Route path="*" name="Home" element={<DefaultLayout />} />
         </Routes>
       </Suspense>
     </BrowserRouter>
