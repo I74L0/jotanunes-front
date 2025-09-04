@@ -3,6 +3,8 @@
 );
 @use "@coreui/chartjs/scss/coreui-chartjs";
 @use "vendors/simplebar";
+@use "custom";
+@use "variables";
 
 body {
   background-color: var(--cui-body-bg);
