@@ -21,7 +21,7 @@
 }
 
 .background {
-  background-image: linear-gradient(var(--cui-primary-text-emphasis), var(--cui-primary));
+  background-image: linear-gradient(var(--cui-secondary), var(--cui-primary));
   flex: 1;
   display: flex;
 }
