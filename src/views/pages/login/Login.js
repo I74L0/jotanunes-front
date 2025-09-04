@@ -37,13 +37,14 @@ const Login = () => {
     }
   };
   return (
-    <div className="body bg-body-tertiary min-vh-100 d-flex flex-column align-items-center">
+    <div className="body bg-body-tertiary vh-100 d-flex flex-column align-items-center">
       <CHeader position="sticky" className="d-flex vw-100 p-4" >
         <CImage src="/images/Logo Vermelha.png" alt="JotaNunes Logo" height={48} />
       </CHeader>
       <div className='background fg-1 d-flex align-items-center vw-100'>
         <CCol className='col-image'>
-          <CImage src="images/FLOR-DE-LOTUS-EXT-GUARITA.jpg" alt="JotaNunes Logo"/>
+          <CImage src="images/JOTANUNES-PEROLAS-DO-MAR.jpg" height={1080} width={1980} alt="JotaNunes Logo"/>
+          {/* <CImage src="images/FLOR-DE-LOTUS-EXT-GUARITA.jpg" height={800} width={800} alt="JotaNunes Logo"/> */}
         </CCol>
         <CCol className="d-flex justify-content-center align-items-center">
           <CCol md={8}>

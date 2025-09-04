@@ -1,3 +1,7 @@
+/* .body {
+  overflow: hidden;
+} */
+
 .col {
   height: -webkit-fill-available;
 }
@@ -16,20 +20,10 @@
   --cui-gutter-x: 0 !important;
 }
 
-.fg-1 {
-  flex-grow: 1 !important;
-}
-
 .background {
   background-image: linear-gradient(var(--cui-secondary), var(--cui-primary));
   flex: 1;
-  display: flex;
-}
-
-.div-body {
-  display: flex;
-  width: 100%;
-  height: -webkit-fill-available;
+  height: calc(100% - 97px);
 }
 
 .col-image {
