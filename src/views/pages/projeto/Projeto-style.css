@@ -1,0 +1,12 @@
+.container {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.container .nav-item {
+    list-style-type: none;
+} 
+
+.row > * {
+    width: fit-content !important;
+}
