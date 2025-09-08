@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import {
+  CInputGroup,
+  CInputGroupText,
   CButton,
   CCard,
   CCardBody,
@@ -20,6 +22,11 @@ import {
   CDropdownToggle,
   CContainer,
   CRow,
+  CTab,
+  CTabContent,
+  CTabList,
+  CTabPanel,
+  CTabs,
 } from '@coreui/react'
 import {
   cilBell,
@@ -35,28 +42,28 @@ import {
 import CIcon from '@coreui/icons-react'
 
 import avatar8 from 'src/assets/images/avatars/8.jpg'
-import { AppBreadcrumb } from 'src/components/index'
-import './Projeto-style.css';
+import './Projeto-style.css'
 
 const Projeto = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   return (
     <div className="body bg-body-tertiary vh-100 d-flex flex-column align-items-center">
-      <CHeader position="sticky" className="d-flex vw-100 p-4" >
+      <CHeader position="sticky" className="d-flex vw-100 p-4">
         <CRow className="header-row vw-100 justify-content-between align-items-center">
           <CContainer>
             <CImage src="/images/Logo Vermelha.png" alt="JotaNunes Logo" height={48} />
           </CContainer>
           <CContainer className="d-flex">
             <CRow>
-              <p>Aoba</p>
               <CDropdown variant="nav-item">
                 <CDropdownToggle placement="bottom-end" className="py-0 pe-0" caret={false}>
                   <CAvatar src={avatar8} size="lg" />
                 </CDropdownToggle>
                 <CDropdownMenu className="pt-0" placement="bottom-end">
-                  <CDropdownHeader className="bg-body-secondary fw-semibold mb-2">Account</CDropdownHeader>
+                  <CDropdownHeader className="bg-body-secondary fw-semibold mb-2">
+                    Account
+                  </CDropdownHeader>
                   <CDropdownItem href="#">
                     <CIcon icon={cilBell} className="me-2" />
                     Updates
@@ -85,7 +92,9 @@ const Projeto = () => {
                       42
                     </CBadge>
                   </CDropdownItem>
-                  <CDropdownHeader className="bg-body-secondary fw-semibold my-2">Settings</CDropdownHeader>
+                  <CDropdownHeader className="bg-body-secondary fw-semibold my-2">
+                    Settings
+                  </CDropdownHeader>
                   <CDropdownItem href="#">
                     <CIcon icon={cilUser} className="me-2" />
                     Profile
@@ -118,10 +127,77 @@ const Projeto = () => {
             </CRow>
           </CContainer>
         </CRow>
-        <CContainer className="px-4" fluid>
-          <AppBreadcrumb />
+        <hr className="vw-100" />
+        <CContainer fluid>
+          <CTabs defaultActiveItemKey={2} className="w-100">
+            <CTabList variant="tabs" layout="justified">
+              <CTab aria-controls="home-tab-pane" itemKey={1}>
+                Home
+              </CTab>
+              <CTab aria-controls="profile-tab-pane" itemKey={2}>
+                Profile
+              </CTab>
+              <CTab aria-controls="contact-tab-pane" itemKey={3}>
+                Contact
+              </CTab>
+              <CTab aria-controls="disabled-tab-pane" disabled itemKey={4}>
+                Disabled
+              </CTab>
+            </CTabList>
+            {/* <CTabContent>
+              <CTabPanel className="py-3" aria-labelledby="home-tab-pane" itemKey={1}>
+                Home tab content
+              </CTabPanel>
+              <CTabPanel className="py-3" aria-labelledby="profile-tab-pane" itemKey={2}>
+                Profile tab content
+              </CTabPanel>
+              <CTabPanel className="py-3" aria-labelledby="contact-tab-pane" itemKey={3}>
+                Contact tab content
+              </CTabPanel>
+              <CTabPanel className="py-3" aria-labelledby="disabled-tab-pane" itemKey={4}>
+                Disabled tab content
+              </CTabPanel>
+            </CTabContent> */}
+          </CTabs>
         </CContainer>
       </CHeader>
+      <div className="body">
+        <CCol className="d-flex justify-content-center align-items-center">
+          <CCol md={8}>
+            <CCardGroup>
+              <CCard className="p-4">
+                <CCardBody>
+                  <CForm>
+                    <h1>Login</h1>
+                    <hr />
+                    <CInputGroup className="mb-3">
+                      <CInputGroupText>
+                        <CIcon icon={cilUser} />
+                      </CInputGroupText>
+                      <CFormInput placeholder="Username" autoComplete="username" />
+                    </CInputGroup>
+                    <CInputGroup className="mb-4">
+                      <CInputGroupText>
+                        <CIcon icon={cilLockLocked} />
+                      </CInputGroupText>
+                      <CFormInput
+                        type="password"
+                        placeholder="Password"
+                        autoComplete="current-password"
+                      />
+                    </CInputGroup>
+                    <CRow className="row-login">
+                      <CButton color="primary" className="btn-login px-4" type="submit">
+                        Login
+                      </CButton>
+                    </CRow>
+                  </CForm>
+                </CCardBody>
+              </CCard>
+            </CCardGroup>
+          </CCol>
+        </CCol>
+      </div>
     </div>
   )
 }
