@@ -27,6 +27,8 @@ import {
   CTabList,
   CTabPanel,
   CTabs,
+  CHeaderText,
+  CAccordion, CAccordionBody, CAccordionHeader, CAccordionItem
 } from '@coreui/react'
 import {
   cilBell,
@@ -42,7 +44,7 @@ import {
 import CIcon from '@coreui/icons-react'
 
 import avatar8 from 'src/assets/images/avatars/8.jpg'
-import './Projeto-style.css'
+import 'src/views/pages/projeto/Projeto-style.scss'
 
 const Projeto = () => {
   const navigate = useNavigate()
@@ -56,6 +58,7 @@ const Projeto = () => {
           </CContainer>
           <CContainer className="d-flex">
             <CRow>
+              <CHeaderText className="text-secondary">Maria Joaquina</CHeaderText>
               <CDropdown variant="nav-item">
                 <CDropdownToggle placement="bottom-end" className="py-0 pe-0" caret={false}>
                   <CAvatar src={avatar8} size="lg" />
@@ -131,17 +134,17 @@ const Projeto = () => {
         <CContainer fluid>
           <CTabs defaultActiveItemKey={2} className="w-100">
             <CTabList variant="tabs" layout="justified">
-              <CTab aria-controls="home-tab-pane" itemKey={1}>
-                Home
+              <CTab aria-controls="prefacio-tab-pane" itemKey={1}>
+                Prefácio
               </CTab>
-              <CTab aria-controls="profile-tab-pane" itemKey={2}>
-                Profile
+              <CTab aria-controls="unidades-tab-pane" itemKey={2}>
+                Unidades Privativas
               </CTab>
-              <CTab aria-controls="contact-tab-pane" itemKey={3}>
-                Contact
+              <CTab aria-controls="area-comum-tab-pane" itemKey={3}>
+                Área Comum
               </CTab>
-              <CTab aria-controls="disabled-tab-pane" disabled itemKey={4}>
-                Disabled
+              <CTab aria-controls="observacoes-tab-pane" itemKey={4}>
+                Observações
               </CTab>
             </CTabList>
             {/* <CTabContent>
@@ -161,42 +164,13 @@ const Projeto = () => {
           </CTabs>
         </CContainer>
       </CHeader>
-      <div className="body">
-        <CCol className="d-flex justify-content-center align-items-center">
-          <CCol md={8}>
-            <CCardGroup>
-              <CCard className="p-4">
-                <CCardBody>
-                  <CForm>
-                    <h1>Login</h1>
-                    <hr />
-                    <CInputGroup className="mb-3">
-                      <CInputGroupText>
-                        <CIcon icon={cilUser} />
-                      </CInputGroupText>
-                      <CFormInput placeholder="Username" autoComplete="username" />
-                    </CInputGroup>
-                    <CInputGroup className="mb-4">
-                      <CInputGroupText>
-                        <CIcon icon={cilLockLocked} />
-                      </CInputGroupText>
-                      <CFormInput
-                        type="password"
-                        placeholder="Password"
-                        autoComplete="current-password"
-                      />
-                    </CInputGroup>
-                    <CRow className="row-login">
-                      <CButton color="primary" className="btn-login px-4" type="submit">
-                        Login
-                      </CButton>
-                    </CRow>
-                  </CForm>
-                </CCardBody>
-              </CCard>
-            </CCardGroup>
-          </CCol>
-        </CCol>
+      <div className="background w-100 d-flex justify-content-center align-items-center flex-grow-1">
+        <CCard className="m-4 h-100" style={{ width: '70%' }}>
+          <CCardBody>
+            <h1>Projeto</h1>
+            <hr />
+          </CCardBody>
+        </CCard>
       </div>
     </div>
   )
