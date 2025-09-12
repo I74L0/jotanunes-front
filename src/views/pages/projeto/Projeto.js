@@ -167,7 +167,15 @@ const Projeto = () => {
       <div className="background w-100 d-flex justify-content-center align-items-center flex-grow-1">
         <CCard className="m-4 h-100" style={{ width: '70%' }}>
           <CCardBody>
-            <h1>Projeto</h1>
+            <CRow>
+              <CRow>
+                <CIcon></CIcon>
+                <p>Aoba</p>
+              </CRow>
+              <div>
+                <p>Unique Residence</p>
+              </div>
+            </CRow>
             <hr />
           </CCardBody>
         </CCard>
