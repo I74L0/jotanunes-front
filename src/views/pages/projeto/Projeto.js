@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
   CInputGroup,
   CInputGroupText,
@@ -28,7 +28,10 @@ import {
   CTabPanel,
   CTabs,
   CHeaderText,
-  CAccordion, CAccordionBody, CAccordionHeader, CAccordionItem
+  CAccordion,
+  CAccordionBody,
+  CAccordionHeader,
+  CAccordionItem
 } from '@coreui/react'
 import {
   cilBell,
@@ -42,12 +45,14 @@ import {
   cilUser,
 } from '@coreui/icons'
 import CIcon from '@coreui/icons-react'
+import { IoIosAddCircle } from "react-icons/io";
 
 import avatar8 from 'src/assets/images/avatars/8.jpg'
 import 'src/views/pages/projeto/Projeto-style.scss'
 
 const Projeto = () => {
   const navigate = useNavigate()
+  const [activeTab, setActiveTab] = useState(1)
 
   return (
     <div className="body bg-body-tertiary vh-100 d-flex flex-column align-items-center">
@@ -70,61 +75,34 @@ const Projeto = () => {
                   <CDropdownItem href="#">
                     <CIcon icon={cilBell} className="me-2" />
                     Updates
-                    <CBadge color="info" className="ms-2">
-                      42
-                    </CBadge>
+                    <CBadge color="info" className="ms-2">42</CBadge>
                   </CDropdownItem>
                   <CDropdownItem href="#">
                     <CIcon icon={cilEnvelopeOpen} className="me-2" />
                     Messages
-                    <CBadge color="success" className="ms-2">
-                      42
-                    </CBadge>
+                    <CBadge color="success" className="ms-2">42</CBadge>
                   </CDropdownItem>
                   <CDropdownItem href="#">
                     <CIcon icon={cilTask} className="me-2" />
                     Tasks
-                    <CBadge color="danger" className="ms-2">
-                      42
-                    </CBadge>
+                    <CBadge color="danger" className="ms-2">42</CBadge>
                   </CDropdownItem>
                   <CDropdownItem href="#">
                     <CIcon icon={cilCommentSquare} className="me-2" />
                     Comments
-                    <CBadge color="warning" className="ms-2">
-                      42
-                    </CBadge>
+                    <CBadge color="warning" className="ms-2">42</CBadge>
                   </CDropdownItem>
-                  <CDropdownHeader className="bg-body-secondary fw-semibold my-2">
-                    Settings
-                  </CDropdownHeader>
-                  <CDropdownItem href="#">
-                    <CIcon icon={cilUser} className="me-2" />
-                    Profile
+                  <CDropdownHeader className="bg-body-secondary fw-semibold my-2">Settings</CDropdownHeader>
+                  <CDropdownItem href="#"><CIcon icon={cilUser} className="me-2" />Profile</CDropdownItem>
+                  <CDropdownItem href="#"><CIcon icon={cilSettings} className="me-2" />Settings</CDropdownItem>
+                  <CDropdownItem href="#"><CIcon icon={cilCreditCard} className="me-2" />Payments
+                    <CBadge color="secondary" className="ms-2">42</CBadge>
                   </CDropdownItem>
-                  <CDropdownItem href="#">
-                    <CIcon icon={cilSettings} className="me-2" />
-                    Settings
-                  </CDropdownItem>
-                  <CDropdownItem href="#">
-                    <CIcon icon={cilCreditCard} className="me-2" />
-                    Payments
-                    <CBadge color="secondary" className="ms-2">
-                      42
-                    </CBadge>
-                  </CDropdownItem>
-                  <CDropdownItem href="#">
-                    <CIcon icon={cilFile} className="me-2" />
-                    Projects
-                    <CBadge color="primary" className="ms-2">
-                      42
-                    </CBadge>
+                  <CDropdownItem href="#"><CIcon icon={cilFile} className="me-2" />Projects
+                    <CBadge color="primary" className="ms-2">42</CBadge>
                   </CDropdownItem>
                   <CDropdownDivider />
-                  <CDropdownItem href="#">
-                    <CIcon icon={cilLockLocked} className="me-2" />
-                    Lock Account
-                  </CDropdownItem>
+                  <CDropdownItem href="#"><CIcon icon={cilLockLocked} className="me-2" />Lock Account</CDropdownItem>
                 </CDropdownMenu>
               </CDropdown>
             </CRow>
@@ -132,53 +110,73 @@ const Projeto = () => {
         </CRow>
         <hr className="vw-100" />
         <CContainer fluid>
-          <CTabs defaultActiveItemKey={2} className="w-100">
+          <CTabs activeItemKey={activeTab} className="w-100">
             <CTabList variant="tabs" layout="justified">
-              <CTab aria-controls="prefacio-tab-pane" itemKey={1}>
-                Prefácio
-              </CTab>
-              <CTab aria-controls="unidades-tab-pane" itemKey={2}>
-                Unidades Privativas
-              </CTab>
-              <CTab aria-controls="area-comum-tab-pane" itemKey={3}>
-                Área Comum
-              </CTab>
-              <CTab aria-controls="observacoes-tab-pane" itemKey={4}>
-                Observações
-              </CTab>
+              <CTab itemKey={1} onClick={() => setActiveTab(1)}>Prefácio</CTab>
+              <CTab itemKey={2} onClick={() => setActiveTab(2)}>Unidades Privativas</CTab>
+              <CTab itemKey={3} onClick={() => setActiveTab(3)}>Área Comum</CTab>
+              <CTab itemKey={4} onClick={() => setActiveTab(4)}>Observações</CTab>
             </CTabList>
-            {/* <CTabContent>
-              <CTabPanel className="py-3" aria-labelledby="home-tab-pane" itemKey={1}>
-                Home tab content
-              </CTabPanel>
-              <CTabPanel className="py-3" aria-labelledby="profile-tab-pane" itemKey={2}>
-                Profile tab content
-              </CTabPanel>
-              <CTabPanel className="py-3" aria-labelledby="contact-tab-pane" itemKey={3}>
-                Contact tab content
-              </CTabPanel>
-              <CTabPanel className="py-3" aria-labelledby="disabled-tab-pane" itemKey={4}>
-                Disabled tab content
-              </CTabPanel>
-            </CTabContent> */}
           </CTabs>
         </CContainer>
       </CHeader>
+
       <div className="background w-100 d-flex justify-content-center align-items-center flex-grow-1">
-        <CCard className="m-4 h-100" style={{ width: '70%' }}>
-          <CCardBody>
-            <CRow>
-              <CRow>
-                <CIcon></CIcon>
-                <p>Aoba</p>
+        {activeTab === 1 && (
+          <CCard className="m-4 h-100 w-75">
+            <CCardBody>
+              <CRow className="justify-content-between align-items-center">
+                <CRow className="d-flex align-items-center" onClick={() => navigate('/dashboard')}>
+                  <IoIosAddCircle className="circle-icon" />
+                  <p>Adicionar Prefácio</p>
+                </CRow>
+                <div><p>Conteúdo do Prefácio</p></div>
               </CRow>
-              <div>
-                <p>Unique Residence</p>
-              </div>
-            </CRow>
-            <hr />
-          </CCardBody>
-        </CCard>
+              <hr />
+              <p>Aqui vai o conteúdo específico da aba "Prefácio".</p>
+            </CCardBody>
+          </CCard>
+        )}
+
+        {activeTab === 2 && (
+          <CCard className="m-4 h-100 w-75">
+            <CCardBody>
+              <CRow className="justify-content-between align-items-center">
+                <CRow className="d-flex align-items-center" onClick={() => navigate('/dashboard')}>
+                  <IoIosAddCircle className="circle-icon" />
+                  <p>Adicionar Ambiente</p>
+                </CRow>
+                <div><p>Unique Residence</p></div>
+              </CRow>
+              <hr />
+              <p>Lista / grid de Unidades Privativas, filtros e ações podem ficar aqui.</p>
+            </CCardBody>
+          </CCard>
+        )}
+
+        {activeTab === 3 && (
+          <CCard className="m-4 h-100 w-75">
+            <CCardBody>
+              <CRow className="justify-content-between align-items-center">
+                <div><p>Área Comum</p></div>
+              </CRow>
+              <hr />
+              <p>Conteúdo da aba Área Comum.</p>
+            </CCardBody>
+          </CCard>
+        )}
+
+        {activeTab === 4 && (
+          <CCard className="m-4 h-100 w-75">
+            <CCardBody>
+              <CRow className="justify-content-between align-items-center">
+                <div><p>Observações</p></div>
+              </CRow>
+              <hr />
+              <p>Conteúdo da aba Observações.</p>
+            </CCardBody>
+          </CCard>
+        )}
       </div>
     </div>
   )

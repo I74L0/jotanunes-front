@@ -20,3 +20,20 @@
         color.adjust($primary, $lightness: -30%)
     );
 }
+
+.card {
+    width: 70%;
+    border-radius: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card p {
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.circle-icon {
+    font-size: 2rem;
+    color: $primary;
+    margin: 0 10px;
+    padding: 0 0;
+}
