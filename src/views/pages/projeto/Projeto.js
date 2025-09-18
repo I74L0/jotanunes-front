@@ -8,6 +8,7 @@ import {
   CCardBody,
   CCardGroup,
   CCol,
+  CCollapse,
   CImage,
   CForm,
   CFormInput,
@@ -53,6 +54,7 @@ import 'src/views/pages/projeto/Projeto-style.scss'
 const Projeto = () => {
   const navigate = useNavigate()
   const [activeTab, setActiveTab] = useState(1)
+  const [visible, setVisible] = useState(false)
 
   return (
     <div className="body bg-body-tertiary vh-100 d-flex flex-column align-items-center">
@@ -124,16 +126,55 @@ const Projeto = () => {
       <div className="background w-100 d-flex justify-content-center align-items-center flex-grow-1">
         {activeTab === 1 && (
           <CCard className="m-4 h-100 w-75">
-            <CCardBody>
-              <CRow className="justify-content-between align-items-center">
+            <CCardBody className="p-0">
+              <CRow className="justify-content-between align-items-center m-3">
                 <CRow className="d-flex align-items-center" onClick={() => navigate('/dashboard')}>
                   <IoIosAddCircle className="circle-icon" />
                   <p>Adicionar Prefácio</p>
                 </CRow>
                 <div><p>Conteúdo do Prefácio</p></div>
               </CRow>
-              <hr />
-              <p>Aqui vai o conteúdo específico da aba "Prefácio".</p>
+              <div>
+                <CCol>
+                  <div className='temp'>
+                    <p href="#" onClick={(event) => {
+                        event.preventDefault()
+                        setVisible(!visible)
+                      }}>| 1.1 Sala de Estar/ Jantar</p>
+                  </div>
+                  <CCollapse visible={visible} className="mb-3">
+                    <CAccordion>
+                      <CAccordionItem itemKey={1}>
+                        <CAccordionHeader>Detalhes da Sala de Estar/Jantar</CAccordionHeader>
+                        <CAccordionBody>
+                          Aqui estão os detalhes adicionais sobre a Sala de Estar/Jantar.
+                        </CAccordionBody>
+                      </CAccordionItem>
+                    </CAccordion>
+                  </CCollapse>
+                  <div className='temp'>
+                    <p>| 1.2 Circulação</p>
+                  </div>
+                  <div className='temp'>
+                    <p>| 1.3 Quarto e Suíte</p>
+                  </div>
+                  <div className='temp'>
+                    <p>| 1.4 Sanitário/Lavabo</p>
+                  </div>
+                  <div className='temp'>
+                    <p>| 1.5 Cozinha/ Área de Serviço</p>
+                  </div>
+                  <div className='temp'>
+                    <p>| 1.6 Área Técnica</p>
+                  </div>
+                  <div className='temp'>
+                    <p>| 1.7 Varanda</p>
+                  </div>
+                  <div className='temp'>
+                    <p>| 1.8 Garden</p>
+                  </div>
+                </CCol>
+              </div>
             </CCardBody>
           </CCard>
         )}
