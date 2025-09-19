@@ -38,9 +38,15 @@
     padding: 0 0;
 }
 
-.temp {
+.ambiente {
     width: 100%;
     height: 30px;
     background-color: lightgray;
     margin: .2rem 0;
+    padding-left: 1rem;
+}
+
+.ambiente .row {
+    margin-left: 0;
+    gap: .5rem;
 }

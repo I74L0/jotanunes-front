@@ -47,6 +47,7 @@ import {
 } from '@coreui/icons'
 import CIcon from '@coreui/icons-react'
 import { IoIosAddCircle } from "react-icons/io";
+import { motion } from "framer-motion";
 
 import avatar8 from 'src/assets/images/avatars/8.jpg'
 import 'src/views/pages/projeto/Projeto-style.scss'
@@ -54,7 +55,14 @@ import 'src/views/pages/projeto/Projeto-style.scss'
 const Projeto = () => {
   const navigate = useNavigate()
   const [activeTab, setActiveTab] = useState(1)
-  const [visible, setVisible] = useState(false)
+  const [isSalaVisible, setSalaVisible] = useState(false)
+  const [isCirculacaoVisible, setCirculacaoVisible] = useState(false)
+  const [isQuartoVisible, setQuartoVisible] = useState(false)
+  const [isSanitarioVisible, setSanitarioVisible] = useState(false)
+  const [isCozinhaVisible, setCozinhaVisible] = useState(false)
+  const [isAreaTecnicaVisible, setAreaTecnicaVisible] = useState(false)
+  const [isVarandaVisible, setVarandaVisible] = useState(false)
+  const [isGardenVisible, setGardenVisible] = useState(false)
 
   return (
     <div className="body bg-body-tertiary vh-100 d-flex flex-column align-items-center">
@@ -126,71 +134,117 @@ const Projeto = () => {
       <div className="background w-100 d-flex justify-content-center align-items-center flex-grow-1">
         {activeTab === 1 && (
           <CCard className="m-4 h-100 w-75">
-            <CCardBody className="p-0">
-              <CRow className="justify-content-between align-items-center m-3">
+            <CCardBody>
+              <CRow className="justify-content-between align-items-center">
                 <CRow className="d-flex align-items-center" onClick={() => navigate('/dashboard')}>
                   <IoIosAddCircle className="circle-icon" />
                   <p>Adicionar Prefácio</p>
                 </CRow>
                 <div><p>Conteúdo do Prefácio</p></div>
               </CRow>
-              <div>
-                <CCol>
-                  <div className='temp'>
-                    <p href="#" onClick={(event) => {
-                        event.preventDefault()
-                        setVisible(!visible)
-                      }}>| 1.1 Sala de Estar/ Jantar</p>
-                  </div>
-                  <CCollapse visible={visible} className="mb-3">
-                    <CAccordion>
-                      <CAccordionItem itemKey={1}>
-                        <CAccordionHeader>Detalhes da Sala de Estar/Jantar</CAccordionHeader>
-                        <CAccordionBody>
-                          Aqui estão os detalhes adicionais sobre a Sala de Estar/Jantar.
-                        </CAccordionBody>
-                      </CAccordionItem>
-                    </CAccordion>
-                  </CCollapse>
-                  <div className='temp'>
-                    <p>| 1.2 Circulação</p>
-                  </div>
-                  <div className='temp'>
-                    <p>| 1.3 Quarto e Suíte</p>
-                  </div>
-                  <div className='temp'>
-                    <p>| 1.4 Sanitário/Lavabo</p>
-                  </div>
-                  <div className='temp'>
-                    <p>| 1.5 Cozinha/ Área de Serviço</p>
-                  </div>
-                  <div className='temp'>
-                    <p>| 1.6 Área Técnica</p>
-                  </div>
-                  <div className='temp'>
-                    <p>| 1.7 Varanda</p>
-                  </div>
-                  <div className='temp'>
-                    <p>| 1.8 Garden</p>
-                  </div>
-                </CCol>
-              </div>
+              <hr />
+              <p>Lista / grid de Unidades Privativas, filtros e ações podem ficar aqui.</p>
             </CCardBody>
           </CCard>
         )}
 
         {activeTab === 2 && (
           <CCard className="m-4 h-100 w-75">
-            <CCardBody>
-              <CRow className="justify-content-between align-items-center">
+            <CCardBody className="p-0">
+              <CRow className="justify-content-between align-items-center m-3">
                 <CRow className="d-flex align-items-center" onClick={() => navigate('/dashboard')}>
                   <IoIosAddCircle className="circle-icon" />
                   <p>Adicionar Ambiente</p>
                 </CRow>
                 <div><p>Unique Residence</p></div>
               </CRow>
-              <hr />
-              <p>Lista / grid de Unidades Privativas, filtros e ações podem ficar aqui.</p>
+              <div>
+                <CCol>
+                  <div className='ambiente' href="#" onClick={() => setSalaVisible(!isSalaVisible)}>
+                    <CRow>
+                      <p>{isSalaVisible ? "⮕" : "|"}</p>
+                      <p>1.1 Sala de Estar/ Jantar</p>
+                    </CRow>
+                  </div>
+                  <CCollapse visible={isSalaVisible}>
+                    <CCard>
+                      <CCardBody>
+                        Sala de Estar/ Jantar
+                      </CCardBody>
+                    </CCard>
+                  </CCollapse>
+                  <div className='ambiente' href="#" onClick={() => setCirculacaoVisible(!isCirculacaoVisible)}>
+                    <p>| 1.2 Circulação</p>
+                  </div>
+                  <CCollapse visible={isCirculacaoVisible}>
+                    <CCard>
+                      <CCardBody>
+                        Circulação
+                      </CCardBody>
+                    </CCard>
+                  </CCollapse>
+                  <div className='ambiente' href="#" onClick={() => setQuartoVisible(!isQuartoVisible)}>
+                    <p>| 1.3 Quarto e Suíte</p>
+                  </div>
+                  <CCollapse visible={isQuartoVisible}>
+                    <CCard className="mt-3">
+                      <CCardBody>
+                        Quarto e Suíte
+                      </CCardBody>
+                    </CCard>
+                  </CCollapse>
+                  <div className='ambiente' href="#" onClick={() => setSanitarioVisible(!isSanitarioVisible)}>
+                    <p>| 1.4 Sanitário/Lavabo</p>
+                  </div>
+                  <CCollapse visible={isSanitarioVisible}>
+                    <CCard className="mt-3">
+                      <CCardBody>
+                        Sanitário/Lavabo
+                      </CCardBody>
+                    </CCard>
+                  </CCollapse>
+                  <div className='ambiente' href="#" onClick={() => setCozinhaVisible(!isCozinhaVisible)}>
+                    <p>| 1.5 Cozinha/ Área de Serviço</p>
+                  </div>
+                  <CCollapse visible={isCozinhaVisible}>
+                    <CCard className="mt-3">
+                      <CCardBody>
+                        Cozinha/ Área de Serviço
+                      </CCardBody>
+                    </CCard>
+                  </CCollapse>
+                  <div className='ambiente' href="#" onClick={() => setAreaTecnicaVisible(!isAreaTecnicaVisible)}>
+                    <p>| 1.6 Área Técnica</p>
+                  </div>
+                  <CCollapse visible={isAreaTecnicaVisible}>
+                    <CCard className="mt-3">
+                      <CCardBody>
+                        Área Técnica
+                      </CCardBody>
+                    </CCard>
+                  </CCollapse>
+                  <div className='ambiente' href="#" onClick={() => setVarandaVisible(!isVarandaVisible)}>
+                    <p>| 1.7 Varanda</p>
+                  </div>
+                  <CCollapse visible={isVarandaVisible}>
+                    <CCard className="mt-3">
+                      <CCardBody>
+                        Varanda
+                      </CCardBody>
+                    </CCard>
+                  </CCollapse>
+                  <div className='ambiente' href="#" onClick={() => setGardenVisible(!isGardenVisible)}>
+                    <p>| 1.8 Garden</p>
+                  </div>
+                  <CCollapse visible={isGardenVisible}>
+                    <CCard className="mt-3">
+                      <CCardBody>
+                        Garden
+                      </CCardBody>
+                    </CCard>
+                  </CCollapse>
+                </CCol>
+              </div>
             </CCardBody>
           </CCard>
         )}
