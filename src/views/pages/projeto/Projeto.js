@@ -175,7 +175,7 @@ const Projeto = () => {
                     </CRow>
                   </div>
                   <CCollapse visible={isSalaVisible}>
-                    <CTable className="mt-3">
+                    <CTable>
                       <CTableHead>
                         <CTableRow>
                           <CTableHeaderCell scope="col">Item</CTableHeaderCell>
@@ -212,7 +212,7 @@ const Projeto = () => {
                     </CRow>
                   </div>
                   <CCollapse visible={isCirculacaoVisible}>
-                    <CTable className="mt-3">
+                    <CTable>
                       <CTableHead>
                         <CTableRow>
                           <CTableHeaderCell scope="col">Item</CTableHeaderCell>
@@ -249,7 +249,7 @@ const Projeto = () => {
                     </CRow>
                   </div>
                   <CCollapse visible={isQuartoVisible}>
-                    <CTable className="mt-3">
+                    <CTable>
                       <CTableHead>
                         <CTableRow>
                           <CTableHeaderCell scope="col">Item</CTableHeaderCell>
@@ -286,7 +286,7 @@ const Projeto = () => {
                     </CRow>
                   </div>
                   <CCollapse visible={isSanitarioVisible}>
-                    <CTable className="mt-3">
+                    <CTable>
                       <CTableHead>
                         <CTableRow>
                           <CTableHeaderCell scope="col">Item</CTableHeaderCell>
@@ -323,7 +323,7 @@ const Projeto = () => {
                     </CRow>
                   </div>
                   <CCollapse visible={isCozinhaVisible}>
-                    <CTable className="mt-3">
+                    <CTable>
                       <CTableHead>
                         <CTableRow>
                           <CTableHeaderCell scope="col">Item</CTableHeaderCell>
@@ -360,7 +360,7 @@ const Projeto = () => {
                     </CRow>
                   </div>
                   <CCollapse visible={isAreaTecnicaVisible}>
-                    <CTable className="mt-3">
+                    <CTable>
                       <CTableHead>
                         <CTableRow>
                           <CTableHeaderCell scope="col">Item</CTableHeaderCell>
@@ -397,7 +397,7 @@ const Projeto = () => {
                     </CRow>
                   </div>
                   <CCollapse visible={isVarandaVisible}>
-                    <CTable className="mt-3">
+                    <CTable>
                       <CTableHead>
                         <CTableRow>
                           <CTableHeaderCell scope="col">Item</CTableHeaderCell>
@@ -434,7 +434,7 @@ const Projeto = () => {
                     </CRow>
                   </div>
                   <CCollapse visible={isGardenVisible}>
-                    <CTable className="mt-3">
+                    <CTable>
                       <CTableHead>
                         <CTableRow>
                           <CTableHeaderCell scope="col">Item</CTableHeaderCell>

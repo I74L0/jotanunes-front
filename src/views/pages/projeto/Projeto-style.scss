@@ -1,6 +1,10 @@
 @use "src/scss/_variables.scss" as *;
 @use  "sass:color";
 
+body {
+    overflow-y: scroll;
+}
+
 .container {
     margin-left: 0;
     margin-right: 0;
