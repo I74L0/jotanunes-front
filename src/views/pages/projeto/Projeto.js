@@ -74,8 +74,8 @@ const Projeto = () => {
 
   return (
     <div className="body bg-body-tertiary vh-100 d-flex flex-column align-items-center">
-      <CHeader position="sticky" className="d-flex vw-100 p-4">
-        <CRow className="header-row vw-100 justify-content-between align-items-center">
+      <CHeader position="sticky" className="d-flex w-100 p-4">
+        <CRow className="header-row w-100 justify-content-between align-items-center">
           <CContainer>
             <CImage src="/images/Logo Vermelha.png" alt="JotaNunes Logo" height={48} />
           </CContainer>
@@ -126,7 +126,7 @@ const Projeto = () => {
             </CRow>
           </CContainer>
         </CRow>
-        <hr className="vw-100" />
+        <hr className="w-100" />
         <CContainer fluid>
           <CTabs activeItemKey={activeTab} className="w-100">
             <CTabList variant="tabs" layout="justified">
