@@ -206,7 +206,10 @@ const Projeto = () => {
                     </CTable>
                   </CCollapse>
                   <div className='ambiente' href="#" onClick={() => setCirculacaoVisible(!isCirculacaoVisible)}>
-                    <p>| 1.2 Circulação</p>
+                    <CRow>
+                      <p>{isCirculacaoVisible ? "⮕" : "|"}</p>
+                      <p>1.2 Circulação</p>
+                    </CRow>
                   </div>
                   <CCollapse visible={isCirculacaoVisible}>
                     <CTable className="mt-3">
@@ -240,7 +243,10 @@ const Projeto = () => {
                     </CTable>
                   </CCollapse>
                   <div className='ambiente' href="#" onClick={() => setQuartoVisible(!isQuartoVisible)}>
-                    <p>| 1.3 Quarto e Suíte</p>
+                    <CRow>
+                      <p>{isQuartoVisible ? "⮕" : "|"}</p>
+                      <p>1.3 Quarto e Suíte</p>
+                    </CRow>
                   </div>
                   <CCollapse visible={isQuartoVisible}>
                     <CTable className="mt-3">
@@ -274,7 +280,10 @@ const Projeto = () => {
                     </CTable>
                   </CCollapse>
                   <div className='ambiente' href="#" onClick={() => setSanitarioVisible(!isSanitarioVisible)}>
-                    <p>| 1.4 Sanitário/Lavabo</p>
+                    <CRow>
+                      <p>{isSanitarioVisible ? "⮕" : "|"}</p>
+                      <p>1.4 Sanitário/Lavabo</p>
+                    </CRow>
                   </div>
                   <CCollapse visible={isSanitarioVisible}>
                     <CTable className="mt-3">
@@ -308,7 +317,10 @@ const Projeto = () => {
                     </CTable>
                   </CCollapse>
                   <div className='ambiente' href="#" onClick={() => setCozinhaVisible(!isCozinhaVisible)}>
-                    <p>| 1.5 Cozinha/ Área de Serviço</p>
+                    <CRow>
+                      <p>{isCozinhaVisible ? "⮕" : "|"}</p>
+                      <p>1.5 Cozinha/ Área de Serviço</p>
+                    </CRow>
                   </div>
                   <CCollapse visible={isCozinhaVisible}>
                     <CTable className="mt-3">
@@ -342,7 +354,10 @@ const Projeto = () => {
                     </CTable>
                   </CCollapse>
                   <div className='ambiente' href="#" onClick={() => setAreaTecnicaVisible(!isAreaTecnicaVisible)}>
-                    <p>| 1.6 Área Técnica</p>
+                    <CRow>
+                      <p>{isAreaTecnicaVisible ? "⮕" : "|"}</p>
+                      <p>1.6 Área Técnica</p>
+                    </CRow>
                   </div>
                   <CCollapse visible={isAreaTecnicaVisible}>
                     <CTable className="mt-3">
@@ -376,7 +391,10 @@ const Projeto = () => {
                     </CTable>
                   </CCollapse>
                   <div className='ambiente' href="#" onClick={() => setVarandaVisible(!isVarandaVisible)}>
-                    <p>| 1.7 Varanda</p>
+                    <CRow>
+                      <p>{isVarandaVisible ? "⮕" : "|"}</p>
+                      <p>1.7 Varanda</p>
+                    </CRow>
                   </div>
                   <CCollapse visible={isVarandaVisible}>
                     <CTable className="mt-3">
@@ -410,7 +428,10 @@ const Projeto = () => {
                     </CTable>
                   </CCollapse>
                   <div className='ambiente' href="#" onClick={() => setGardenVisible(!isGardenVisible)}>
-                    <p>| 1.8 Garden</p>
+                    <CRow>
+                      <p>{isGardenVisible ? "⮕" : "|"}</p>
+                      <p>1.8 Garden</p>
+                    </CRow>
                   </div>
                   <CCollapse visible={isGardenVisible}>
                     <CTable className="mt-3">
