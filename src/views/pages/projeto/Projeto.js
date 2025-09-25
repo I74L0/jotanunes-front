@@ -26,6 +26,12 @@ import {
   CTab,
   CTabContent,
   CTabList,
+  CTable,
+  CTableBody,
+  CTableDataCell,
+  CTableHead,
+  CTableHeaderCell,
+  CTableRow,
   CTabPanel,
   CTabs,
   CHeaderText,
@@ -47,6 +53,8 @@ import {
 } from '@coreui/icons'
 import CIcon from '@coreui/icons-react'
 import { IoIosAddCircle } from "react-icons/io";
+import { FaCheck } from "react-icons/fa";
+import { BsXLg } from "react-icons/bs";
 import { motion } from "framer-motion";
 
 import avatar8 from 'src/assets/images/avatars/8.jpg'
@@ -149,7 +157,7 @@ const Projeto = () => {
         )}
 
         {activeTab === 2 && (
-          <CCard className="m-4 h-100 w-75">
+          <CCard className="h-100 w-75">
             <CCardBody className="p-0">
               <CRow className="justify-content-between align-items-center m-3">
                 <CRow className="d-flex align-items-center" onClick={() => navigate('/dashboard')}>
@@ -167,81 +175,273 @@ const Projeto = () => {
                     </CRow>
                   </div>
                   <CCollapse visible={isSalaVisible}>
-                    <CCard>
-                      <CCardBody>
-                        Sala de Estar/ Jantar
-                      </CCardBody>
-                    </CCard>
+                    <CTable className="mt-3">
+                      <CTableHead>
+                        <CTableRow>
+                          <CTableHeaderCell scope="col">Item</CTableHeaderCell>
+                          <CTableHeaderCell scope="col">Descrição</CTableHeaderCell>
+                          <CTableHeaderCell scope="col">Status</CTableHeaderCell>
+                        </CTableRow>
+                      </CTableHead>
+                      <CTableBody>
+                        <CTableRow>
+                          <CTableDataCell>Piso</CTableDataCell>
+                          <CTableDataCell>Porcelanato</CTableDataCell>
+                          <CTableDataCell><FaCheck/></CTableDataCell>
+                        </CTableRow>
+                        <CTableRow>
+                          <CTableDataCell>Rodapé</CTableDataCell>
+                          <CTableDataCell>Porcelanato, h-5cm</CTableDataCell>
+                          <CTableDataCell><BsXLg strokeWidth={2}/></CTableDataCell>
+                        </CTableRow>
+                        <CTableRow>
+                          <CTableDataCell>Parede</CTableDataCell>
+                          <CTableDataCell>
+                            Pintura PVA látex branco sobre
+                            gesso ou massa de regularização PVA
+                          </CTableDataCell>
+                          <CTableDataCell><FaCheck/></CTableDataCell>
+                        </CTableRow>
+                      </CTableBody>
+                    </CTable>
                   </CCollapse>
                   <div className='ambiente' href="#" onClick={() => setCirculacaoVisible(!isCirculacaoVisible)}>
                     <p>| 1.2 Circulação</p>
                   </div>
                   <CCollapse visible={isCirculacaoVisible}>
-                    <CCard>
-                      <CCardBody>
-                        Circulação
-                      </CCardBody>
-                    </CCard>
+                    <CTable className="mt-3">
+                      <CTableHead>
+                        <CTableRow>
+                          <CTableHeaderCell scope="col">Item</CTableHeaderCell>
+                          <CTableHeaderCell scope="col">Descrição</CTableHeaderCell>
+                          <CTableHeaderCell scope="col">Status</CTableHeaderCell>
+                        </CTableRow>
+                      </CTableHead>
+                      <CTableBody>
+                        <CTableRow>
+                          <CTableDataCell>Piso</CTableDataCell>
+                          <CTableDataCell>Porcelanato</CTableDataCell>
+                          <CTableDataCell><FaCheck/></CTableDataCell>
+                        </CTableRow>
+                        <CTableRow>
+                          <CTableDataCell>Rodapé</CTableDataCell>
+                          <CTableDataCell>Porcelanato, h-5cm</CTableDataCell>
+                          <CTableDataCell><BsXLg strokeWidth={2}/></CTableDataCell>
+                        </CTableRow>
+                        <CTableRow>
+                          <CTableDataCell>Parede</CTableDataCell>
+                          <CTableDataCell>
+                            Pintura PVA látex branco sobre
+                            gesso ou massa de regularização PVA
+                          </CTableDataCell>
+                          <CTableDataCell><FaCheck/></CTableDataCell>
+                        </CTableRow>
+                      </CTableBody>
+                    </CTable>
                   </CCollapse>
                   <div className='ambiente' href="#" onClick={() => setQuartoVisible(!isQuartoVisible)}>
                     <p>| 1.3 Quarto e Suíte</p>
                   </div>
                   <CCollapse visible={isQuartoVisible}>
-                    <CCard className="mt-3">
-                      <CCardBody>
-                        Quarto e Suíte
-                      </CCardBody>
-                    </CCard>
+                    <CTable className="mt-3">
+                      <CTableHead>
+                        <CTableRow>
+                          <CTableHeaderCell scope="col">Item</CTableHeaderCell>
+                          <CTableHeaderCell scope="col">Descrição</CTableHeaderCell>
+                          <CTableHeaderCell scope="col">Status</CTableHeaderCell>
+                        </CTableRow>
+                      </CTableHead>
+                      <CTableBody>
+                        <CTableRow>
+                          <CTableDataCell>Piso</CTableDataCell>
+                          <CTableDataCell>Porcelanato</CTableDataCell>
+                          <CTableDataCell><FaCheck/></CTableDataCell>
+                        </CTableRow>
+                        <CTableRow>
+                          <CTableDataCell>Rodapé</CTableDataCell>
+                          <CTableDataCell>Porcelanato, h-5cm</CTableDataCell>
+                          <CTableDataCell><BsXLg strokeWidth={2}/></CTableDataCell>
+                        </CTableRow>
+                        <CTableRow>
+                          <CTableDataCell>Parede</CTableDataCell>
+                          <CTableDataCell>
+                            Pintura PVA látex branco sobre
+                            gesso ou massa de regularização PVA
+                          </CTableDataCell>
+                          <CTableDataCell><FaCheck/></CTableDataCell>
+                        </CTableRow>
+                      </CTableBody>
+                    </CTable>
                   </CCollapse>
                   <div className='ambiente' href="#" onClick={() => setSanitarioVisible(!isSanitarioVisible)}>
                     <p>| 1.4 Sanitário/Lavabo</p>
                   </div>
                   <CCollapse visible={isSanitarioVisible}>
-                    <CCard className="mt-3">
-                      <CCardBody>
-                        Sanitário/Lavabo
-                      </CCardBody>
-                    </CCard>
+                    <CTable className="mt-3">
+                      <CTableHead>
+                        <CTableRow>
+                          <CTableHeaderCell scope="col">Item</CTableHeaderCell>
+                          <CTableHeaderCell scope="col">Descrição</CTableHeaderCell>
+                          <CTableHeaderCell scope="col">Status</CTableHeaderCell>
+                        </CTableRow>
+                      </CTableHead>
+                      <CTableBody>
+                        <CTableRow>
+                          <CTableDataCell>Piso</CTableDataCell>
+                          <CTableDataCell>Porcelanato</CTableDataCell>
+                          <CTableDataCell><FaCheck/></CTableDataCell>
+                        </CTableRow>
+                        <CTableRow>
+                          <CTableDataCell>Rodapé</CTableDataCell>
+                          <CTableDataCell>Porcelanato, h-5cm</CTableDataCell>
+                          <CTableDataCell><BsXLg strokeWidth={2}/></CTableDataCell>
+                        </CTableRow>
+                        <CTableRow>
+                          <CTableDataCell>Parede</CTableDataCell>
+                          <CTableDataCell>
+                            Pintura PVA látex branco sobre
+                            gesso ou massa de regularização PVA
+                          </CTableDataCell>
+                          <CTableDataCell><FaCheck/></CTableDataCell>
+                        </CTableRow>
+                      </CTableBody>
+                    </CTable>
                   </CCollapse>
                   <div className='ambiente' href="#" onClick={() => setCozinhaVisible(!isCozinhaVisible)}>
                     <p>| 1.5 Cozinha/ Área de Serviço</p>
                   </div>
                   <CCollapse visible={isCozinhaVisible}>
-                    <CCard className="mt-3">
-                      <CCardBody>
-                        Cozinha/ Área de Serviço
-                      </CCardBody>
-                    </CCard>
+                    <CTable className="mt-3">
+                      <CTableHead>
+                        <CTableRow>
+                          <CTableHeaderCell scope="col">Item</CTableHeaderCell>
+                          <CTableHeaderCell scope="col">Descrição</CTableHeaderCell>
+                          <CTableHeaderCell scope="col">Status</CTableHeaderCell>
+                        </CTableRow>
+                      </CTableHead>
+                      <CTableBody>
+                        <CTableRow>
+                          <CTableDataCell>Piso</CTableDataCell>
+                          <CTableDataCell>Porcelanato</CTableDataCell>
+                          <CTableDataCell><FaCheck/></CTableDataCell>
+                        </CTableRow>
+                        <CTableRow>
+                          <CTableDataCell>Rodapé</CTableDataCell>
+                          <CTableDataCell>Porcelanato, h-5cm</CTableDataCell>
+                          <CTableDataCell><BsXLg strokeWidth={2}/></CTableDataCell>
+                        </CTableRow>
+                        <CTableRow>
+                          <CTableDataCell>Parede</CTableDataCell>
+                          <CTableDataCell>
+                            Pintura PVA látex branco sobre
+                            gesso ou massa de regularização PVA
+                          </CTableDataCell>
+                          <CTableDataCell><FaCheck/></CTableDataCell>
+                        </CTableRow>
+                      </CTableBody>
+                    </CTable>
                   </CCollapse>
                   <div className='ambiente' href="#" onClick={() => setAreaTecnicaVisible(!isAreaTecnicaVisible)}>
                     <p>| 1.6 Área Técnica</p>
                   </div>
                   <CCollapse visible={isAreaTecnicaVisible}>
-                    <CCard className="mt-3">
-                      <CCardBody>
-                        Área Técnica
-                      </CCardBody>
-                    </CCard>
+                    <CTable className="mt-3">
+                      <CTableHead>
+                        <CTableRow>
+                          <CTableHeaderCell scope="col">Item</CTableHeaderCell>
+                          <CTableHeaderCell scope="col">Descrição</CTableHeaderCell>
+                          <CTableHeaderCell scope="col">Status</CTableHeaderCell>
+                        </CTableRow>
+                      </CTableHead>
+                      <CTableBody>
+                        <CTableRow>
+                          <CTableDataCell>Piso</CTableDataCell>
+                          <CTableDataCell>Porcelanato</CTableDataCell>
+                          <CTableDataCell><FaCheck/></CTableDataCell>
+                        </CTableRow>
+                        <CTableRow>
+                          <CTableDataCell>Rodapé</CTableDataCell>
+                          <CTableDataCell>Porcelanato, h-5cm</CTableDataCell>
+                          <CTableDataCell><BsXLg strokeWidth={2}/></CTableDataCell>
+                        </CTableRow>
+                        <CTableRow>
+                          <CTableDataCell>Parede</CTableDataCell>
+                          <CTableDataCell>
+                            Pintura PVA látex branco sobre
+                            gesso ou massa de regularização PVA
+                          </CTableDataCell>
+                          <CTableDataCell><FaCheck/></CTableDataCell>
+                        </CTableRow>
+                      </CTableBody>
+                    </CTable>
                   </CCollapse>
                   <div className='ambiente' href="#" onClick={() => setVarandaVisible(!isVarandaVisible)}>
                     <p>| 1.7 Varanda</p>
                   </div>
                   <CCollapse visible={isVarandaVisible}>
-                    <CCard className="mt-3">
-                      <CCardBody>
-                        Varanda
-                      </CCardBody>
-                    </CCard>
+                    <CTable className="mt-3">
+                      <CTableHead>
+                        <CTableRow>
+                          <CTableHeaderCell scope="col">Item</CTableHeaderCell>
+                          <CTableHeaderCell scope="col">Descrição</CTableHeaderCell>
+                          <CTableHeaderCell scope="col">Status</CTableHeaderCell>
+                        </CTableRow>
+                      </CTableHead>
+                      <CTableBody>
+                        <CTableRow>
+                          <CTableDataCell>Piso</CTableDataCell>
+                          <CTableDataCell>Porcelanato</CTableDataCell>
+                          <CTableDataCell><FaCheck/></CTableDataCell>
+                        </CTableRow>
+                        <CTableRow>
+                          <CTableDataCell>Rodapé</CTableDataCell>
+                          <CTableDataCell>Porcelanato, h-5cm</CTableDataCell>
+                          <CTableDataCell><BsXLg strokeWidth={2}/></CTableDataCell>
+                        </CTableRow>
+                        <CTableRow>
+                          <CTableDataCell>Parede</CTableDataCell>
+                          <CTableDataCell>
+                            Pintura PVA látex branco sobre
+                            gesso ou massa de regularização PVA
+                          </CTableDataCell>
+                          <CTableDataCell><FaCheck/></CTableDataCell>
+                        </CTableRow>
+                      </CTableBody>
+                    </CTable>
                   </CCollapse>
                   <div className='ambiente' href="#" onClick={() => setGardenVisible(!isGardenVisible)}>
                     <p>| 1.8 Garden</p>
                   </div>
                   <CCollapse visible={isGardenVisible}>
-                    <CCard className="mt-3">
-                      <CCardBody>
-                        Garden
-                      </CCardBody>
-                    </CCard>
+                    <CTable className="mt-3">
+                      <CTableHead>
+                        <CTableRow>
+                          <CTableHeaderCell scope="col">Item</CTableHeaderCell>
+                          <CTableHeaderCell scope="col">Descrição</CTableHeaderCell>
+                          <CTableHeaderCell scope="col">Status</CTableHeaderCell>
+                        </CTableRow>
+                      </CTableHead>
+                      <CTableBody>
+                        <CTableRow>
+                          <CTableDataCell>Piso</CTableDataCell>
+                          <CTableDataCell>Porcelanato</CTableDataCell>
+                          <CTableDataCell><FaCheck/></CTableDataCell>
+                        </CTableRow>
+                        <CTableRow>
+                          <CTableDataCell>Rodapé</CTableDataCell>
+                          <CTableDataCell>Porcelanato, h-5cm</CTableDataCell>
+                          <CTableDataCell><BsXLg strokeWidth={2}/></CTableDataCell>
+                        </CTableRow>
+                        <CTableRow>
+                          <CTableDataCell>Parede</CTableDataCell>
+                          <CTableDataCell>
+                            Pintura PVA látex branco sobre
+                            gesso ou massa de regularização PVA
+                          </CTableDataCell>
+                          <CTableDataCell><FaCheck/></CTableDataCell>
+                        </CTableRow>
+                      </CTableBody>
+                    </CTable>
                   </CCollapse>
                 </CCol>
               </div>
