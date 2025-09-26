@@ -56,6 +56,7 @@ import CardPrefacio from './CardPrefacio'
 import CardUnidades from './CardUnidades'
 import CardAreaComum from './CardAreaComum'
 import CardObservacoes from './CardObservacoes'
+import MenuTabs from './MenuTabs'
 
 import avatar8 from 'src/assets/images/avatars/8.jpg'
 import 'src/views/pages/projeto/Projeto-style.scss'
@@ -120,14 +121,7 @@ const Projeto = () => {
         </CRow>
         <hr className="w-100" />
         <CContainer fluid>
-          <CTabs activeItemKey={activeTab} className="w-100">
-            <CTabList variant="tabs" layout="justified">
-              <CTab itemKey={1} onClick={() => setActiveTab(1)}>Prefácio</CTab>
-              <CTab itemKey={2} onClick={() => setActiveTab(2)}>Unidades Privativas</CTab>
-              <CTab itemKey={3} onClick={() => setActiveTab(3)}>Área Comum</CTab>
-              <CTab itemKey={4} onClick={() => setActiveTab(4)}>Observações</CTab>
-            </CTabList>
-          </CTabs>
+          <MenuTabs activeIndex={activeTab - 1} onChange={(i) => setActiveTab(i + 1)} />
         </CContainer>
       </CHeader>
 
