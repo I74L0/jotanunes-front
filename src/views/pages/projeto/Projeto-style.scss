@@ -65,9 +65,16 @@ body {
     gap: .5rem;
 }
 
+.collapse {
+  padding: 0 1rem 1rem;
+}
+
+.collapsing {
+  padding: 0 0 1rem;
+}
+
 .collapse table {
-    width: 90%;
-    margin: 1rem auto;
+    margin: 0;
 }
 
 .menu {
