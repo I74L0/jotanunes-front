@@ -79,7 +79,12 @@ body {
   position: relative;
   align-items: center;
   justify-content: center;
-  background-color: var(--bgColorMenu);
+  // background-color: var(--bgColorMenu);
+}
+
+.menu p {
+  margin-bottom: 0;
+  text-align: center;
 }
 
 .menu__item {
@@ -88,8 +93,9 @@ body {
   z-index: 100;
   display: flex;
   cursor: pointer;
+  margin: 0 1rem;
   position: relative;
-  border-radius: 50%;
+  border-bottom: 1px solid black;
   align-items: center;
   will-change: transform;
   justify-content: center;
@@ -120,8 +126,6 @@ body {
 .icon {
   width: 2.6em;
   height: 2.6em;
-  stroke: white;
-  fill: transparent;
   stroke-width: 1pt;
   stroke-miterlimit: 10;
   stroke-linecap: round;
@@ -133,27 +137,55 @@ body {
   animation: strok 1.5s reverse;
 }
 
+.svg-container {
+  width: 0;
+  height: 0;
+}
+
+.menu__item .icon {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  line-height: 1;
+}
+
+.menu__item .icon text {
+  font-size: 1.5rem;
+  transition: transform .28s cubic-bezier(.22,.9,.42,1), opacity .28s;
+  transform-origin: 12px 12px;
+  fill: black;
+  opacity: 0.95;
+  pointer-events: none;
+  user-select: none;
+}
+
+.menu__item.active .icon text {
+  transform: translateY(-3px) scale(1.12);
+  opacity: 1;
+}
+
+.menu__item .icon path {
+  /* mantém paths invisíveis para não quebrar seletores antigos */
+  opacity: 0;
+  pointer-events: none;
+}
+
+// .menu__border {
+//   left: 0;
+//   bottom: 99%;
+//   width: 10.9em;
+//   height: 1em;
+//   position: absolute;
+//   clip-path: url(#menu);
+//   will-change: transform;
+//   background-color: var(--bgColorMenu);
+//   transition: transform var(--timeOut , var(--duration));
+// }
+
 @keyframes strok {
   100% {
     stroke-dashoffset: 400;
   }
-}
-
-.menu__border {
-  left: 0;
-  bottom: 99%;
-  width: 10.9em;
-  height: 1em;
-  position: absolute;
-  clip-path: url(#menu);
-  will-change: transform;
-  background-color: var(--bgColorMenu);
-  transition: transform var(--timeOut , var(--duration));
-}
-
-.svg-container {
-  width: 0;
-  height: 0;
 }
 
 @media screen and (max-width: 50em) {

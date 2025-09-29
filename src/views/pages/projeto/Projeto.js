@@ -67,7 +67,7 @@ const Projeto = () => {
 
   return (
     <div className="body bg-body-tertiary vh-100 d-flex flex-column align-items-center">
-      <CHeader position="sticky" className="d-flex w-100 p-4">
+      <CHeader position="sticky" className="d-flex w-100 p-4 p-3">
         <CRow className="header-row w-100 justify-content-between align-items-center">
           <CContainer>
             <CImage src="/images/Logo Vermelha.png" alt="JotaNunes Logo" height={48} />
