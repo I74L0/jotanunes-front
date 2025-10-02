@@ -37,3 +37,150 @@
     margin: 0 10px;
     padding: 0 0;
 }
+
+.lista-ambientes {
+  margin-top: 10px;
+}
+
+.linha-ambiente {
+  padding: 8px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.linha-ambiente p {
+  margin: 0;
+}
+
+.add-ambiente {
+  cursor: pointer;
+}
+
+.add-ambiente:hover p {
+  text-decoration: underline;
+}
+
+// --- linhas / lista (mantém o visual atual) ---
+.lista-ambientes {
+  margin-top: 10px;
+}
+
+.linha-ambiente {
+  border: 1px solid #e0e0e0 !important; /* borda cinza */
+  background-color: #dcdcdc !important;  /* fundo cinza (igual ao seu print) */
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* garante que o texto fique alinhado e não estoure */
+.nome-wrapper {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* texto padrão da linha */
+.nome-ambiente {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+}
+
+/* input inline para edição do novo ambiente — SEM borda, ocupa toda a largura da área da linha
+   isso evita qualquer "quebra" no layout quando estiver em modo edição */
+.inline-input {
+  width: 100%;
+  background: transparent;    /* transparente pra parecer com a linha */
+  border: none;               /* sem borda */
+  outline: none;              /* sem outline quando focado */
+  padding: 0;                 /* sem padding extra — já vem do .linha-ambiente */
+  font-size: 1rem;
+  font-weight: 500;
+  color: inherit;
+  line-height: 1.6;
+}
+
+/* ajustar botão remover para ficar à direita como no seu print */
+.acao-remover {
+  margin-left: 12px;
+  flex: 0 0 auto;
+}
+
+/* icone e texto do botão adicionar (mantém visual que você já tem) */
+.circle-icon {
+  font-size: 1.6rem;
+  color: #b22222; /* vermelho parecido com o tema */
+}
+
+/* título do empreendimento no topo à direita */
+.empreendimento-title {
+  font-weight: 500;
+  color: #333;
+}
+
+/* textarea que cresce automaticamente */
+.auto-expand {
+  width: 100%;
+  min-height: 32px;      /* altura inicial (1 linha) */
+  max-height: 300px;     /* altura máxima pra não estourar a tela */
+  resize: none;          /* desabilita resize manual */
+  overflow: hidden;      /* esconde barra de rolagem */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px 6px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.prefacio-textarea {
+  width: 100%;
+  min-height: 300px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 1rem;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.prefacio-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.prefacio-linha {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.prefacio-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.prefacio-input {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 6px 8px;
+  font-size: 1rem;
+  min-width: 180px;
+}
+
+.prefacio-textarea {
+  width: 100%;
+  min-height: 200px;
+  resize: vertical;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 1rem;
+}
