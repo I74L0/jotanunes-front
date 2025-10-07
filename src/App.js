@@ -12,7 +12,7 @@ import './scss/examples.scss'
 const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'))
 
 // Pages
-const Projeto = React.lazy(() => import('src/views/pages/projeto/Projeto.jsx'))
+const Projeto = React.lazy(() => import('src/views/pages/projeto/Projeto'))
 const Index = React.lazy(() => import('./views/pages/index/Index'))
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
 const Login = React.lazy(() => import('./views/pages/login/Login'))
