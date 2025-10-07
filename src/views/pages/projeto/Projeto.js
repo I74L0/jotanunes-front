@@ -1,17 +1,6 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 import {
-  CInputGroup,
-  CInputGroupText,
-  CButton,
-  CCard,
-  CCardBody,
-  CCardGroup,
-  CCol,
-  CCollapse,
   CImage,
-  CForm,
-  CFormInput,
   CHeader,
   CAvatar,
   CBadge,
@@ -23,23 +12,7 @@ import {
   CDropdownToggle,
   CContainer,
   CRow,
-  CTab,
-  CTabContent,
-  CTabList,
-  CTable,
-  CTableBody,
-  CTableDataCell,
-  CTableHead,
-  CTableHeaderCell,
-  CTableRow,
-  CTabPanel,
-  CTabs,
-  CHeaderText,
-  CAccordion,
-  CAccordionBody,
-  CAccordionHeader,
-  CAccordionItem
-} from '@coreui/react'
+  CHeaderText} from '@coreui/react'
 import {
   cilBell,
   cilCreditCard,
@@ -62,7 +35,6 @@ import avatar8 from 'src/assets/images/avatars/8.jpg'
 import 'src/views/pages/projeto/Projeto-style.scss'
 
 const Projeto = () => {
-  const navigate = useNavigate()
   const [activeTab, setActiveTab] = useState(1)
 
   return (

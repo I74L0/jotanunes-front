@@ -4,7 +4,6 @@ import { IoIosAddCircle } from 'react-icons/io'
 import { useNavigate } from 'react-router-dom'
 
 export default function CardPrefacio() {
-  const navigate = useNavigate()
 
   const [prefacio, setPrefacio] = useState({
     nome: "",
