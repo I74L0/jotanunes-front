@@ -28,6 +28,7 @@ import CIcon from '@coreui/icons-react'
 import CardPrefacio from './CardPrefacio'
 import CardUnidades from './CardUnidades'
 import CardAreaComum from './CardAreaComum'
+import CardMateriais from './CardMateriais'
 import CardObservacoes from './CardObservacoes'
 import MenuTabs from './MenuTabs'
 
@@ -101,7 +102,8 @@ const Projeto = () => {
         {activeTab === 1 && <CardPrefacio />}
         {activeTab === 2 && <CardUnidades />}
         {activeTab === 3 && <CardAreaComum />}
-        {activeTab === 4 && <CardObservacoes />}
+        {activeTab === 4 && <CardMateriais />}
+        {activeTab === 5 && <CardObservacoes />}
       </div>
     </div>
   )

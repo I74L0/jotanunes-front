@@ -9,7 +9,7 @@ export default function CardObservacoes() {
           <div><p>Observações</p></div>
         </CRow>
         <hr />
-        <p>Conteúdo da aba Observações.</p>
+        <textarea className='w-100 h-75' placeholder='Observações do projeto'></textarea>
       </CCardBody>
     </CCard>
   )

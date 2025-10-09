@@ -48,7 +48,7 @@ const MenuTabs = ({ activeIndex = 0, onChange = () => {} }) => {
       <menu className="menu" ref={menuRef}>
         <button
           className={`menu__item ${activeIndex === 0 ? 'active' : ''}`}
-          style={{ '--bgColorItem': '#ff8c00' }}
+          style={{ '--bgColorItem': '#BC1F1B' }}
           ref={(el) => (itemRefs.current[0] = el)}
           onClick={() => clickItem(0)}
         >
@@ -68,7 +68,7 @@ const MenuTabs = ({ activeIndex = 0, onChange = () => {} }) => {
 
         <button
           className={`menu__item ${activeIndex === 1 ? 'active' : ''}`}
-          style={{ '--bgColorItem': '#f54888' }}
+          style={{ '--bgColorItem': '#BC1F1B' }}
           ref={(el) => (itemRefs.current[1] = el)}
           onClick={() => clickItem(1)}
         >
@@ -88,7 +88,7 @@ const MenuTabs = ({ activeIndex = 0, onChange = () => {} }) => {
 
         <button
           className={`menu__item ${activeIndex === 2 ? 'active' : ''}`}
-          style={{ '--bgColorItem': '#4343f5' }}
+          style={{ '--bgColorItem': '#BC1F1B' }}
           ref={(el) => (itemRefs.current[2] = el)}
           onClick={() => clickItem(2)}
         >
@@ -108,7 +108,7 @@ const MenuTabs = ({ activeIndex = 0, onChange = () => {} }) => {
 
         <button
           className={`menu__item ${activeIndex === 3 ? 'active' : ''}`}
-          style={{ '--bgColorItem': '#e0b115' }}
+          style={{ '--bgColorItem': '#BC1F1B' }}
           ref={(el) => (itemRefs.current[3] = el)}
           onClick={() => clickItem(3)}
         >
@@ -122,6 +122,26 @@ const MenuTabs = ({ activeIndex = 0, onChange = () => {} }) => {
               fill="currentColor"
             >
               4
+            </text>
+          </svg>
+        </button>
+
+        <button
+          className={`menu__item ${activeIndex === 4 ? 'active' : ''}`}
+          style={{ '--bgColorItem': '#BC1F1B' }}
+          ref={(el) => (itemRefs.current[4] = el)}
+          onClick={() => clickItem(4)}
+        >
+          <svg className="icon" viewBox="0 0 24 24" aria-hidden>
+            <path d="M0 0" fill="transparent" />
+            <text 
+              x="12" 
+              y="12" 
+              textAnchor="middle" 
+              dominantBaseline="middle"
+              fill="currentColor"
+            >
+              5
             </text>
           </svg>
         </button>
