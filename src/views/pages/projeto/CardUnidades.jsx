@@ -80,7 +80,7 @@ export default function CardUnidades() {
     <CCard className="h-100 w-75">
       <CCardBody className="p-0">
         <>
-          <CRow className="justify-content-between align-items-center mb-2">
+          <CRow className="justify-content-between align-items-center mb-2 mt-3">
             <div className="d-flex align-items-center add-ambiente" onClick={adicionarAmbiente} style={{cursor: 'pointer'}}>
               <IoIosAddCircle className="circle-icon" />
               <span className="ms-2">Adicionar Ambiente</span>

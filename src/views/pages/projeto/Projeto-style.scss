@@ -119,8 +119,8 @@ body {
 .menu__item::before {
   content: "";
   z-index: -1;
-  width: 2.8em;
-  height: 2.8em;
+  width: 2.8rem;
+  height: 2.8rem;
   border-radius: 50%;
   position: absolute;
   transform: scale(0);
@@ -173,7 +173,7 @@ body {
 }
 
 .menu__item.active .icon text {
-  transform: translateY(-3px) scale(1.12);
+  transform: scale(1.12) translateY(1px);
   opacity: 1;
   fill: white;
 }
@@ -229,7 +229,6 @@ body {
   width: 100%;
   border: 1px solid #e0e0e0 !important; /* borda cinza */
   background-color: #dcdcdc !important;  /* fundo cinza (igual ao seu print) */
-  border-radius: 6px;
   padding: 14px 18px;
   margin-bottom: 10px;
   display: flex;
