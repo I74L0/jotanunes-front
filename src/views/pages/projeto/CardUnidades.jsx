@@ -1,9 +1,7 @@
-import { useState } from 'react'
-import { 
+import {
   CButton,
   CCard,
   CCardBody,
-  CCol,
   CCollapse,
   CRow,
   CTable,
@@ -11,26 +9,12 @@ import {
   CTableDataCell,
   CTableHead,
   CTableHeaderCell,
-  CTableRow
+  CTableRow,
 } from '@coreui/react'
-import { IoIosAddCircle } from "react-icons/io";
-import { FaCheck } from "react-icons/fa";
-import { BsXLg } from "react-icons/bs";
-import { useNavigate } from 'react-router-dom'
+import { IoIosAddCircle } from 'react-icons/io'
 
-export default function CardUnidades() {
+export default function CardUnidades({ ambientes, setAmbientes }) {
 
-  const [ambientes, setAmbientes] = useState([
-    { nome: "Sala de Estar/ Jantar", editando: false, aberto: false, linhas: [] },
-    { nome: "Circulação", editando: false, aberto: false, linhas: [] },
-    { nome: "Quarto e Suíte", editando: false, aberto: false, linhas: [] },
-    { nome: "Sanitário/ Lavabo", editando: false, aberto: false, linhas: [] },
-    { nome: "Cozinha/ Área de Serviço", editando: false, aberto: false, linhas: [] },
-    { nome: "Área Técnica", editando: false, aberto: false, linhas: [] },
-    { nome: "Varanda", editando: false, aberto: false, linhas: [] },
-    { nome: "Garden", editando: false, aberto: false, linhas: [] }
-  ])
-    
   const adicionarAmbiente = () => {
     const novo = { nome: `Novo Ambiente ${ambientes.length + 1}`, editando: true, aberto: true, linhas: [] }
     setAmbientes([...ambientes, novo])
@@ -60,7 +44,7 @@ export default function CardUnidades() {
 
   const adicionarLinha = (idx) => {
     const novos = [...ambientes]
-    novos[idx].linhas.push({ item: "", descricao: "" })
+    novos[idx].linhas.push({ item: '', descricao: '' })
     setAmbientes(novos)
   }
 
@@ -81,7 +65,11 @@ export default function CardUnidades() {
       <CCardBody className="p-0">
         <>
           <CRow className="justify-content-between align-items-center mb-2 mt-3">
-            <div className="d-flex align-items-center add-ambiente" onClick={adicionarAmbiente} style={{cursor: 'pointer'}}>
+            <div
+              className="d-flex align-items-center add-ambiente"
+              onClick={adicionarAmbiente}
+              style={{ cursor: 'pointer' }}
+            >
               <IoIosAddCircle className="circle-icon" />
               <span className="ms-2">Adicionar Ambiente</span>
             </div>
@@ -127,7 +115,6 @@ export default function CardUnidades() {
                   </div>
                 </CRow>
 
-                {/* Collapse da tabela */}
                 <CCollapse visible={amb.aberto}>
                   <CCard className="mt-2 mb-3">
                     <CCardBody>

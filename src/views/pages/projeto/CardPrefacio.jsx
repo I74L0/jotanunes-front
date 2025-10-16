@@ -1,16 +1,7 @@
-import React, { useState } from 'react'
-import { CCard, CCardBody, CRow } from '@coreui/react'
-import { IoIosAddCircle } from 'react-icons/io'
-import { useNavigate } from 'react-router-dom'
+import React from 'react'
+import { CCard, CCardBody } from '@coreui/react'
 
-export default function CardPrefacio() {
-
-  const [prefacio, setPrefacio] = useState({
-    nome: "",
-    estado: "",
-    cidade: "",
-    texto: "",
-  })
+export default function CardPrefacio({ prefacio, setPrefacio }) {
 
   return (
     <CCard className="m-4 h-100 w-75">

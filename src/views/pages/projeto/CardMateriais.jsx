@@ -1,139 +1,83 @@
-import { useState } from 'react'
 import {
   CButton,
   CCard,
   CCardBody,
-  CCol,
-  CCollapse,
-  CRow,
   CTable,
   CTableBody,
   CTableDataCell,
   CTableHead,
   CTableHeaderCell,
-  CTableRow
+  CTableRow,
 } from '@coreui/react'
-import { IoIosAddCircle } from "react-icons/io";
-import { FaCheck } from "react-icons/fa";
-import { BsXLg } from "react-icons/bs";
-import { useNavigate } from 'react-router-dom'
 
-export default function CardMaterias() {
-  const navigate = useNavigate()
+export default function CardMateriais({ materiais, setMateriais }) {
 
-  const [material, setMaterial] = useState(
-    [
-      {
-        id: "1",
-        nome: "Cerâmica",
-        marcas: [
-          "Incesa", "Portobello", "Arielle", "Tecnogres", "Pamesa",
-          "Camelo Fior", "Biancogrês", "Pointer"
-        ]
-      },
-      {
-        id: "2",
-        nome: "Porcelanato",
-        marcas: [
-          "Portobello", "Arielle", "Tecnogres", "Pamesa", "Biancogrês",
-          "Elizabeth", "Ceusa", "Pointer", "Villagres"
-        ]
-      },
-      {
-        id: "3",
-        nome: "Laminado",
-        marcas: [
-          "Eucatex", "Durafloor ou Espaçofloor"
-        ]
-      },
-      {
-        id: "4",
-        nome: "Esquadria",
-        marcas: [
-          "Esaf", "Alumasa", "Atlantica", "Ramassol ou Unicasa"
-        ]
-      },
-      {
-        id: "5",
-        nome: "Ferragem",
-        marcas: [
-          "Silvana", "Stam", "Arouca", "Soprano", "Aliança", "Imab"
-        ]
-      },
-      {
-        id: "6",
-        nome: "Instalação Elétrica",
-        marcas: [
-          "Alumbra", "Steck", "Ilumi", "Schneider", "Margirius ou Fame"
-        ]
-      },
-      {
-        id: "7",
-        nome: "Metal Sanitário",
-        marcas: [
-          "Forusi", "Deca", "Celite", "Fabrimar ou Docol"
-        ]
-      },
-    ]
-  )
+  const adicionarMaterial = () => {
+    const novoMaterial = {
+      id: `${materiais.length + 1}`,
+      nome: 'Novo Material',
+      marcas: ['Nova Marca'],
+    }
+    setMateriais([...materiais, novoMaterial])
+  }
+
+  const removerMaterial = (index) => {
+    setMateriais(materiais.filter((_, i) => i !== index))
+  }
+
+  const atualizarNomeMaterial = (index, novoNome) => {
+    const novosMateriais = [...materiais]
+    novosMateriais[index].nome = novoNome
+    setMateriais(novosMateriais)
+  }
+
+  const atualizarMarcas = (index, novasMarcas) => {
+    const novosMateriais = [...materiais]
+    novosMateriais[index].marcas = novasMarcas.split(',').map((marca) => marca.trim())
+    setMateriais(novosMateriais)
+  }
 
   return (
     <CCard className="h-100 w-75">
       <CCardBody className="p-0">
-        <CTable bordered>
+        <CTable hover>
           <CTableHead>
             <CTableRow>
               <CTableHeaderCell>Item</CTableHeaderCell>
-              <CTableHeaderCell>Descrição</CTableHeaderCell>
-              <CTableHeaderCell>Status</CTableHeaderCell>
+              <CTableHeaderCell>Marcas Sugeridas (separadas por vírgula)</CTableHeaderCell>
               <CTableHeaderCell>Ações</CTableHeaderCell>
             </CTableRow>
           </CTableHead>
           <CTableBody>
-            {material.map((linha, i) => (
+            {materiais.map((material, i) => (
               <CTableRow key={i}>
-                <CTableDataCell>
+                <CTableDataCell width="25%">
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={material.nome}
+                    onChange={(e) => atualizarNomeMaterial(i, e.target.value)}
+                  />
+                </CTableDataCell>
+                <CTableDataCell width="60%">
                   <textarea
-                    className="auto-expand"
-                    rows="1"
-                    value={linha.item}
-                    onChange={(e) =>
-                      atualizarLinha(idx, i, 'item', e.target.value)
-                    }
+                    className="form-control"
+                    rows="2"
+                    value={material.marcas.join(', ')}
+                    onChange={(e) => atualizarMarcas(i, e.target.value)}
                   />
                 </CTableDataCell>
                 <CTableDataCell>
-                  <textarea
-                    className="auto-expand"
-                    rows="1"
-                    value={linha.descricao}
-                    onChange={(e) =>
-                      atualizarLinha(idx, i, 'descricao', e.target.value)
-                    }
-                  />
-                </CTableDataCell>
-                <CTableDataCell style={{ textAlign: 'center', cursor: 'pointer' }} onClick={() => toggleStatus(idx, i)}>
-                  {linha.status ? <FaCheck color="green" /> : <BsXLg color="red" strokeWidth={1}/>}
-                </CTableDataCell>
-                <CTableDataCell>
-                  <CButton
-                    color="danger"
-                    size="sm"
-                    onClick={() => removerLinha(idx, i)}
-                  >
+                  <CButton color="danger" size="sm" onClick={() => removerMaterial(i)}>
                     Remover
                   </CButton>
                 </CTableDataCell>
               </CTableRow>
             ))}
             <CTableRow>
-              <CTableDataCell colSpan={4}>
-                <CButton
-                  color="success"
-                  size="sm"
-                  onClick={() => adicionarLinha(idx)}
-                >
-                  + Adicionar Linha
+              <CTableDataCell colSpan={3}>
+                <CButton color="success" size="sm" onClick={adicionarMaterial}>
+                  + Adicionar Material
                 </CButton>
               </CTableDataCell>
             </CTableRow>
