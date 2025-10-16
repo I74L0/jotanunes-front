@@ -368,6 +368,7 @@ const Projeto = () => {
         <hr className="w-100" />
         <CContainer fluid>
           <MenuTabs activeIndex={activeTab - 1} onChange={(i) => setActiveTab(i + 1)} />
+          <CButton className='btn-salvar'>Salvar e Sair</CButton>
         </CContainer>
       </CHeader>
 
