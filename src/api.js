@@ -1,16 +1,15 @@
-import axios from 'axios';
-import { ACCESS_TOKEN } from './constants';
+import axios from 'axios'
 
-const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL
-});
+export async function login(username, password) {
+  const response = await axios.post('http://localhost/api/token/', {
+    username,
+    password,
+  })
+  const { access, refresh } = response.data
 
-api.interceptors.request.use((config) => {
-  const token = localStorage.getItem(ACCESS_TOKEN);
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-  return config;
-}, (error) => Promise.reject(error));
+  // Salva o token
+  localStorage.setItem('accessToken', access)
+  localStorage.setItem('refreshToken', refresh)
 
-export default api;
+  return access
+}
