@@ -60,12 +60,12 @@ body {
 }
 
 // Descomentar para habilitar o modo escuro
-@include color-mode(dark) {
-  body {
-    background-color: var(--cui-dark-bg-subtle);
-  }
+// @include color-mode(dark) {
+//   body {
+//     background-color: var(--cui-dark-bg-subtle);
+//   }
 
-  .footer {
-    --cui-footer-bg: var(--cui-body-bg);
-  }
-}
+//   .footer {
+//     --cui-footer-bg: var(--cui-body-bg);
+//   }
+// }

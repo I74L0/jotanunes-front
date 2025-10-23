@@ -42,8 +42,8 @@ body {
 .card {
   width: 70%;
   border-radius: 0;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
 .card p {
   margin-bottom: 0;
   padding: 0;
@@ -86,13 +86,12 @@ body {
 .menu {
   margin: 0;
   display: flex;
-  width: 100%;
   font-size: 1.5em;
-  padding: 0 2.85em;
+  padding: 0;
+  flex-grow: 5;
   position: relative;
   align-items: center;
   justify-content: center;
-  // background-color: var(--bgColorMenu);
 }
 
 .menu p {
@@ -119,8 +118,8 @@ body {
 .menu__item::before {
   content: "";
   z-index: -1;
-  width: 2.8em;
-  height: 2.8em;
+  width: 2.8rem;
+  height: 2.8rem;
   border-radius: 50%;
   position: absolute;
   transform: scale(0);
@@ -173,28 +172,20 @@ body {
 }
 
 .menu__item.active .icon text {
-  transform: translateY(-3px) scale(1.12);
+  transform: scale(1.12) translateY(1px);
   opacity: 1;
   fill: white;
 }
 
 .menu__item .icon path {
-  /* mantém paths invisíveis para não quebrar seletores antigos */
   opacity: 0;
   pointer-events: none;
 }
 
-// .menu__border {
-//   left: 0;
-//   bottom: 99%;
-//   width: 10.9em;
-//   height: 1em;
-//   position: absolute;
-//   clip-path: url(#menu);
-//   will-change: transform;
-//   background-color: var(--bgColorMenu);
-//   transition: transform var(--timeOut , var(--duration));
-// }
+.btn-salvar {
+  border: 1px solid black;
+  flex-grow: 1;
+}
 
 @keyframes strok {
   100% {
@@ -229,7 +220,6 @@ body {
   width: 100%;
   border: 1px solid #e0e0e0 !important; /* borda cinza */
   background-color: #dcdcdc !important;  /* fundo cinza (igual ao seu print) */
-  border-radius: 6px;
   padding: 14px 18px;
   margin-bottom: 10px;
   display: flex;
