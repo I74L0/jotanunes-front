@@ -408,101 +408,99 @@ export default function CardUnidades({ ambientes, setAmbientes }) {
                   </div>
                 </CRow>
 
-                <CCollapse visible={amb.aberto}>
-                  <CCard className="mt-2 mb-3">
-                    <CCardBody>
-                      <CTable bordered>
-                        <CTableHead>
-                          <CTableRow>
-                            <CTableHeaderCell>Item</CTableHeaderCell>
-                            <CTableHeaderCell>Descrição</CTableHeaderCell>
-                            <CTableHeaderCell>Ações</CTableHeaderCell>
-                          </CTableRow>
-                        </CTableHead>
-                        <CTableBody>
-                          {amb.linhas.map((linha, i) => (
-                            <CTableRow key={i}>
-                              <CTableDataCell>
-                                <textarea
-                                  className="auto-expand"
-                                  rows="1"
-                                  value={linha.item}
-                                  onChange={(e) =>
-                                    atualizarLinha(idx, i, 'item', e.target.value)
-                                  }
-                                  onInput={(e) => {
-                                    e.target.style.height = 'auto'
-                                    e.target.style.height = e.target.scrollHeight + 'px'
-                                  }}
-                                />
-                              </CTableDataCell>
+                <CCollapse className='div-collapse' visible={amb.aberto}>
+                  <CCard>
+                    <CTable bordered>
+                      <CTableHead>
+                        <CTableRow>
+                          <CTableHeaderCell>Item</CTableHeaderCell>
+                          <CTableHeaderCell>Descrição</CTableHeaderCell>
+                          <CTableHeaderCell>Ações</CTableHeaderCell>
+                        </CTableRow>
+                      </CTableHead>
+                      <CTableBody>
+                        {amb.linhas.map((linha, i) => (
+                          <CTableRow key={i}>
+                            <CTableDataCell>
+                              <textarea
+                                className="auto-expand"
+                                rows="1"
+                                value={linha.item}
+                                onChange={(e) =>
+                                  atualizarLinha(idx, i, 'item', e.target.value)
+                                }
+                                onInput={(e) => {
+                                  e.target.style.height = 'auto'
+                                  e.target.style.height = e.target.scrollHeight + 'px'
+                                }}
+                              />
+                            </CTableDataCell>
 
-                              {/* CAMPO DE DESCRIÇÃO COM POPUP */}
-                              <CTableDataCell style={{ position: 'relative' }}>
-                                <textarea
-                                  className="auto-expand"
-                                  rows="1"
-                                  ref={(el) => linha.descricaoRef = el}
-                                  value={linha.descricao}
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    setPopupTarget({ ambIdx: idx, linhaIdx: i, ref: e.target });
-                                  }}
-                                  onChange={(e) =>
-                                    atualizarLinha(idx, i, 'descricao', e.target.value)
-                                  }
-                                  onInput={(e) => {
-                                    e.target.style.height = 'auto';
-                                    e.target.style.height = e.target.scrollHeight + 'px';
-                                  }}
-                                />
-                                {popupTarget &&
-                                  popupTarget.ambIdx === idx &&
-                                  popupTarget.linhaIdx === i && (
-                                    <DescricaoPopup
-                                      referenceElement={popupTarget.ref}
-                                      onSelect={(desc) => {
-                                        atualizarLinha(idx, i, 'descricao', desc);
-                                        setPopupTarget(null);
+                            {/* CAMPO DE DESCRIÇÃO COM POPUP */}
+                            <CTableDataCell style={{ position: 'relative' }}>
+                              <textarea
+                                className="auto-expand"
+                                rows="1"
+                                ref={(el) => linha.descricaoRef = el}
+                                value={linha.descricao}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setPopupTarget({ ambIdx: idx, linhaIdx: i, ref: e.target });
+                                }}
+                                onChange={(e) =>
+                                  atualizarLinha(idx, i, 'descricao', e.target.value)
+                                }
+                                onInput={(e) => {
+                                  e.target.style.height = 'auto';
+                                  e.target.style.height = e.target.scrollHeight + 'px';
+                                }}
+                              />
+                              {popupTarget &&
+                                popupTarget.ambIdx === idx &&
+                                popupTarget.linhaIdx === i && (
+                                  <DescricaoPopup
+                                    referenceElement={popupTarget.ref}
+                                    onSelect={(desc) => {
+                                      atualizarLinha(idx, i, 'descricao', desc);
+                                      setPopupTarget(null);
 
-                                        setTimeout(() => {
-                                          if(linha.descricaoRef) adjustTextareaSize(linha.descricaoRef)
-                                        }, 0)
-                                      }}
-                                      onAdd={(novo) => {
-                                        atualizarLinha(idx, i, 'descricao', novo);
-                                        setPopupTarget(null);
-                                      }}
-                                      onClose={() => setPopupTarget(null)}
-                                    />
-                                )}
-                              </CTableDataCell>
+                                      setTimeout(() => {
+                                        if(linha.descricaoRef) adjustTextareaSize(linha.descricaoRef)
+                                      }, 0)
+                                    }}
+                                    onAdd={(novo) => {
+                                      atualizarLinha(idx, i, 'descricao', novo);
+                                      setPopupTarget(null);
+                                    }}
+                                    onClose={() => setPopupTarget(null)}
+                                  />
+                              )}
+                            </CTableDataCell>
 
-                              <CTableDataCell>
-                                <CButton
-                                  color="danger"
-                                  size="sm"
-                                  onClick={() => removerLinha(idx, i)}
-                                >
-                                  Remover
-                                </CButton>
-                              </CTableDataCell>
-                            </CTableRow>
-                          ))}
-                          <CTableRow>
-                            <CTableDataCell colSpan={3}>
+                            <CTableDataCell>
                               <CButton
-                                color="success"
+                                color="danger"
                                 size="sm"
-                                onClick={() => adicionarLinha(idx)}
+                                onClick={() => removerLinha(idx, i)}
                               >
-                                + Adicionar Linha
+                                Remover
                               </CButton>
                             </CTableDataCell>
                           </CTableRow>
-                        </CTableBody>
-                      </CTable>
-                    </CCardBody>
+                        ))}
+                        <CTableRow>
+                          <CTableDataCell colSpan={3}>
+                            <CButton
+                              color="success"
+                              size="sm"
+                              onClick={() => adicionarLinha(idx)}
+                            >
+                              + Adicionar Linha
+                            </CButton>
+                          </CTableDataCell>
+                        </CTableRow>
+                      </CTableBody>
+                    </CTable>
                   </CCard>
                 </CCollapse>
               </div>
