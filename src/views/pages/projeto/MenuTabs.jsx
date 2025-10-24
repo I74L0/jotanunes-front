@@ -1,8 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 
 const MenuTabs = ({ activeIndex = 0, onChange = () => {} }) => {
-  const body = document.body
-  const bgColorsBody = ['#ffb457', '#ff96bd', '#9999fb', '#ffe797', '#cffff1']
   const menuRef = useRef(null)
   const menuBorderRef = useRef(null)
   const itemRefs = useRef([])
@@ -27,7 +25,6 @@ const MenuTabs = ({ activeIndex = 0, onChange = () => {} }) => {
   function clickItem(i) {
     if (i === activeIndex) return
     if (menuRef.current) menuRef.current.style.removeProperty('--timeOut')
-    body.style.backgroundColor = bgColorsBody[i]
     onChange(i)
   }
 

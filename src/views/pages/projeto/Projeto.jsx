@@ -39,11 +39,12 @@ import avatar8 from 'src/assets/images/avatars/8.jpg'
 import 'src/views/pages/projeto/Projeto-style.scss'
 
 const Projeto = () => {
-  const { colorMode, setColorMode } = useColorModes('coreui-free-react-admin-template-theme')
+  const { isColorModeSet, setColorMode } = useColorModes('coreui-free-react-admin-template-theme')
+  
   const [activeTab, setActiveTab] = useState(1)
   
   const [prefacioData, setPrefacioData] = useState({
-    nome: '',
+    nome: '', 
     estado: '',
     cidade: '',
     texto: '',

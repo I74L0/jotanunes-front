@@ -136,70 +136,68 @@ export default function CardAreaComum({ ambientes, setAmbientes }) {
                   </div>
                 </CRow>
 
-                <CCollapse visible={amb.aberto}>
-                  <CCard className="mt-2 mb-3">
-                    <CCardBody>
-                      <CTable bordered>
-                        <CTableHead>
-                          <CTableRow>
-                            <CTableHeaderCell>Item</CTableHeaderCell>
-                            <CTableHeaderCell>Descrição</CTableHeaderCell>
-                            <CTableHeaderCell>Status</CTableHeaderCell>
-                            <CTableHeaderCell>Ações</CTableHeaderCell>
-                          </CTableRow>
-                        </CTableHead>
-                        <CTableBody>
-                          {amb.items.map((linha, i) => (
-                            <CTableRow key={i}>
-                              <CTableDataCell>
-                                <textarea
-                                  className="auto-expand"
-                                  rows="1"
-                                  value={linha.item}
-                                  onChange={(e) => atualizarLinha(idx, i, 'item', e.target.value)}
-                                />
-                              </CTableDataCell>
-                              <CTableDataCell>
-                                <textarea
-                                  className="auto-expand"
-                                  rows="1"
-                                  value={linha.descricao}
-                                  onChange={(e) =>
-                                    atualizarLinha(idx, i, 'descricao', e.target.value)
-                                  }
-                                />
-                              </CTableDataCell>
-                              <CTableDataCell
-                                style={{ textAlign: 'center', cursor: 'pointer' }}
-                                onClick={() => toggleStatus(idx, i)}
+                <CCollapse className='div-collapse' visible={amb.aberto}>
+                  <CCard>
+                    <CTable bordered>
+                      <CTableHead>
+                        <CTableRow>
+                          <CTableHeaderCell>Item</CTableHeaderCell>
+                          <CTableHeaderCell>Descrição</CTableHeaderCell>
+                          <CTableHeaderCell>Status</CTableHeaderCell>
+                          <CTableHeaderCell>Ações</CTableHeaderCell>
+                        </CTableRow>
+                      </CTableHead>
+                      <CTableBody>
+                        {amb.items.map((linha, i) => (
+                          <CTableRow key={i}>
+                            <CTableDataCell>
+                              <textarea
+                                className="auto-expand"
+                                rows="1"
+                                value={linha.item}
+                                onChange={(e) => atualizarLinha(idx, i, 'item', e.target.value)}
+                              />
+                            </CTableDataCell>
+                            <CTableDataCell>
+                              <textarea
+                                className="auto-expand"
+                                rows="1"
+                                value={linha.descricao}
+                                onChange={(e) =>
+                                  atualizarLinha(idx, i, 'descricao', e.target.value)
+                                }
+                              />
+                            </CTableDataCell>
+                            <CTableDataCell
+                              style={{ textAlign: 'center', cursor: 'pointer' }}
+                              onClick={() => toggleStatus(idx, i)}
+                            >
+                              {linha.status ? (
+                                <FaCheck color="green" />
+                              ) : (
+                                <BsXLg color="red" strokeWidth={1} />
+                              )}
+                            </CTableDataCell>
+                            <CTableDataCell>
+                              <CButton
+                                color="danger"
+                                size="sm"
+                                onClick={() => removerLinha(idx, i)}
                               >
-                                {linha.status ? (
-                                  <FaCheck color="green" />
-                                ) : (
-                                  <BsXLg color="red" strokeWidth={1} />
-                                )}
-                              </CTableDataCell>
-                              <CTableDataCell>
-                                <CButton
-                                  color="danger"
-                                  size="sm"
-                                  onClick={() => removerLinha(idx, i)}
-                                >
-                                  Remover
-                                </CButton>
-                              </CTableDataCell>
-                            </CTableRow>
-                          ))}
-                          <CTableRow>
-                            <CTableDataCell colSpan={4}>
-                              <CButton color="success" size="sm" onClick={() => adicionarLinha(idx)}>
-                                + Adicionar Linha
+                                Remover
                               </CButton>
                             </CTableDataCell>
                           </CTableRow>
-                        </CTableBody>
-                      </CTable>
-                    </CCardBody>
+                        ))}
+                        <CTableRow>
+                          <CTableDataCell colSpan={4}>
+                            <CButton color="success" size="sm" onClick={() => adicionarLinha(idx)}>
+                              + Adicionar Linha
+                            </CButton>
+                          </CTableDataCell>
+                        </CTableRow>
+                      </CTableBody>
+                    </CTable>
                   </CCard>
                 </CCollapse>
               </div>
