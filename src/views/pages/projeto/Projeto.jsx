@@ -316,7 +316,7 @@ const Projeto = () => {
 
   return (
     <div className="body bg-body-tertiary vh-100 d-flex flex-column align-items-center">
-      <CHeader position="sticky" className="d-flex w-100 p-4 p-3"
+      <CHeader position="sticky" className="d-flex w-100 p-4 pb-0"
       onLoad={() => setColorMode('light')}>
         <CRow className="header-row w-100 justify-content-between align-items-center">
           <CContainer>
@@ -370,10 +370,11 @@ const Projeto = () => {
           </CContainer>
         </CRow>
         <hr className="w-100" />
-        <CContainer fluid>
+        <CRow className='div-tabs w-100'>
+          <div></div>
           <MenuTabs activeIndex={activeTab} onChange={setActiveTab} />
           <CButton className='btn-salvar'>Salvar e Sair</CButton>
-        </CContainer>
+        </CRow>
       </CHeader>
 
       <div className="background w-100 d-flex justify-content-center align-items-center flex-grow-1">

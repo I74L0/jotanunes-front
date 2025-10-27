@@ -1,9 +1,8 @@
-import React, { useRef } from 'react'; // Certifique-se de importar 'React' e 'useRef'
+import React, { useRef } from 'react';
 
 const MenuTabs = ({ activeIndex = 0, onChange = () => {} }) => {
   const menuRef = useRef(null);
 
-  // Lista dos títulos das abas para evitar repetição no JSX
   const tabTitles = [
     "Prefácio",
     "Unidades Privativas",
@@ -13,7 +12,7 @@ const MenuTabs = ({ activeIndex = 0, onChange = () => {} }) => {
   ];
 
   function clickItem(i) {
-    if (i === activeIndex) return; // Se for o item ativo, não faz nada
+    if (i === activeIndex) return;
     
     if (menuRef.current) {
       menuRef.current.style.removeProperty('--timeOut');
@@ -25,11 +24,11 @@ const MenuTabs = ({ activeIndex = 0, onChange = () => {} }) => {
   return (
     <>
       <section className="wrapper">
-        <ul className="tabs" ref={menuRef}> {/* Adicionei o ref aqui */}
+        <ul className="tabs" ref={menuRef}>
           {tabTitles.map((title, index) => (
             <li 
-              key={index} // Chave única é importante no map
-              className={index === activeIndex ? 'active' : ''} // Aplica a classe 'active' se o index for o ativo
+              key={index}
+              className={index === activeIndex ? 'active' : ''}
               onClick={() => clickItem(index)}
             >
               {title}
@@ -37,33 +36,8 @@ const MenuTabs = ({ activeIndex = 0, onChange = () => {} }) => {
           ))}
         </ul>
       </section>
-      
-      {/* OPCIONAL: Adicionar a renderização do conteúdo da aba aqui
-        Você usaria o 'activeIndex' para decidir qual conteúdo mostrar. 
-        Por exemplo:
-      */}
-      {/* <div className="tab-content">
-        {activeIndex === 0 && <div>Conteúdo do Prefácio</div>}
-        {activeIndex === 1 && <div>Conteúdo das Unidades Privativas</div>}
-        // ... e assim por diante
-      </div> 
-      */}
     </>
   );
 }
 
-export default MenuTabs; // Não esqueça de exportar o componente
-
-// Exemplo de como usar (no componente pai):
-/*
-const ParentComponent = () => {
-  const [currentTab, setCurrentTab] = useState(0);
-
-  return (
-    <MenuTabs 
-      activeIndex={currentTab} 
-      onChange={setCurrentTab} 
-    />
-  );
-}
-*/
+export default MenuTabs;
