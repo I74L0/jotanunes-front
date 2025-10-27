@@ -1,151 +1,69 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useRef } from 'react'; // Certifique-se de importar 'React' e 'useRef'
 
 const MenuTabs = ({ activeIndex = 0, onChange = () => {} }) => {
-  const menuRef = useRef(null)
-  const menuBorderRef = useRef(null)
-  const itemRefs = useRef([])
+  const menuRef = useRef(null);
 
-  useEffect(() => {
-    if (menuRef.current && menuBorderRef.current && itemRefs.current[activeIndex]) {
-      offsetMenuBorder(itemRefs.current[activeIndex], menuBorderRef.current)
-    }
-  }, [activeIndex])
-
-  useEffect(() => {
-    const onResize = () => {
-      if (itemRefs.current[activeIndex]) {
-        offsetMenuBorder(itemRefs.current[activeIndex], menuBorderRef.current)
-      }
-      if (menuRef.current) menuRef.current.style.setProperty('--timeOut', 'none')
-    }
-    window.addEventListener('resize', onResize)
-    return () => window.removeEventListener('resize', onResize)
-  }, [activeIndex])
+  // Lista dos títulos das abas para evitar repetição no JSX
+  const tabTitles = [
+    "Prefácio",
+    "Unidades Privativas",
+    "Área Comum",
+    "Materiais",
+    "Observações"
+  ];
 
   function clickItem(i) {
-    if (i === activeIndex) return
-    if (menuRef.current) menuRef.current.style.removeProperty('--timeOut')
-    onChange(i)
-  }
-
-  function offsetMenuBorder(element, menuBorder) {
-    if (!element || !menuRef.current || !menuBorder) return
-    const offsetActiveItem = element.getBoundingClientRect()
-    const left =
-      Math.floor(
-        offsetActiveItem.left -
-          menuRef.current.offsetLeft -
-          (menuBorder.offsetWidth - offsetActiveItem.width) / 2
-      ) + 'px'
-    menuBorder.style.transform = `translate3d(${left}, 0, 0)`
+    if (i === activeIndex) return; // Se for o item ativo, não faz nada
+    
+    if (menuRef.current) {
+      menuRef.current.style.removeProperty('--timeOut');
+    }
+    
+    onChange(i); 
   }
 
   return (
     <>
-      <menu className="menu" ref={menuRef}>
-        <button
-          className={`menu__item ${activeIndex === 0 ? 'active' : ''}`}
-          style={{ '--bgColorItem': '#BC1F1B' }}
-          ref={(el) => (itemRefs.current[0] = el)}
-          onClick={() => clickItem(0)}
-        >
-          <svg className="icon" viewBox="0 0 24 24" aria-hidden>
-            <path d="M0 0" fill="transparent" />
-            <text 
-              x="12" 
-              y="12" 
-              textAnchor="middle" 
-              dominantBaseline="middle"
-              fill="currentColor"
+      <section className="wrapper">
+        <ul className="tabs" ref={menuRef}> {/* Adicionei o ref aqui */}
+          {tabTitles.map((title, index) => (
+            <li 
+              key={index} // Chave única é importante no map
+              className={index === activeIndex ? 'active' : ''} // Aplica a classe 'active' se o index for o ativo
+              onClick={() => clickItem(index)}
             >
-              1
-            </text>
-          </svg>
-        </button>
-
-        <button
-          className={`menu__item ${activeIndex === 1 ? 'active' : ''}`}
-          style={{ '--bgColorItem': '#BC1F1B' }}
-          ref={(el) => (itemRefs.current[1] = el)}
-          onClick={() => clickItem(1)}
-        >
-          <svg className="icon" viewBox="0 0 24 24" aria-hidden>
-            <path d="M0 0" fill="transparent" />
-            <text 
-              x="12" 
-              y="12" 
-              textAnchor="middle" 
-              dominantBaseline="middle"
-              fill="currentColor"
-            >
-              2
-            </text>
-          </svg>
-        </button>
-
-        <button
-          className={`menu__item ${activeIndex === 2 ? 'active' : ''}`}
-          style={{ '--bgColorItem': '#BC1F1B' }}
-          ref={(el) => (itemRefs.current[2] = el)}
-          onClick={() => clickItem(2)}
-        >
-          <svg className="icon" viewBox="0 0 24 24" aria-hidden>
-            <path d="M0 0" fill="transparent" />
-            <text 
-              x="12" 
-              y="12" 
-              textAnchor="middle" 
-              dominantBaseline="middle"
-              fill="currentColor"
-            >
-              3
-            </text>
-          </svg>
-        </button>
-
-        <button
-          className={`menu__item ${activeIndex === 3 ? 'active' : ''}`}
-          style={{ '--bgColorItem': '#BC1F1B' }}
-          ref={(el) => (itemRefs.current[3] = el)}
-          onClick={() => clickItem(3)}
-        >
-          <svg className="icon" viewBox="0 0 24 24" aria-hidden>
-            <path d="M0 0" fill="transparent" />
-            <text 
-              x="12" 
-              y="12" 
-              textAnchor="middle" 
-              dominantBaseline="middle"
-              fill="currentColor"
-            >
-              4
-            </text>
-          </svg>
-        </button>
-
-        <button
-          className={`menu__item ${activeIndex === 4 ? 'active' : ''}`}
-          style={{ '--bgColorItem': '#BC1F1B' }}
-          ref={(el) => (itemRefs.current[4] = el)}
-          onClick={() => clickItem(4)}
-        >
-          <svg className="icon" viewBox="0 0 24 24" aria-hidden>
-            <path d="M0 0" fill="transparent" />
-            <text 
-              x="12" 
-              y="12" 
-              textAnchor="middle" 
-              dominantBaseline="middle"
-              fill="currentColor"
-            >
-              5
-            </text>
-          </svg>
-        </button>
-        
-      </menu>
+              {title}
+            </li>
+          ))}
+        </ul>
+      </section>
+      
+      {/* OPCIONAL: Adicionar a renderização do conteúdo da aba aqui
+        Você usaria o 'activeIndex' para decidir qual conteúdo mostrar. 
+        Por exemplo:
+      */}
+      {/* <div className="tab-content">
+        {activeIndex === 0 && <div>Conteúdo do Prefácio</div>}
+        {activeIndex === 1 && <div>Conteúdo das Unidades Privativas</div>}
+        // ... e assim por diante
+      </div> 
+      */}
     </>
-  )
+  );
 }
 
-export default MenuTabs
+export default MenuTabs; // Não esqueça de exportar o componente
+
+// Exemplo de como usar (no componente pai):
+/*
+const ParentComponent = () => {
+  const [currentTab, setCurrentTab] = useState(0);
+
+  return (
+    <MenuTabs 
+      activeIndex={currentTab} 
+      onChange={setCurrentTab} 
+    />
+  );
+}
+*/

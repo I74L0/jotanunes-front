@@ -41,7 +41,7 @@ import 'src/views/pages/projeto/Projeto-style.scss'
 const Projeto = () => {
   const { isColorModeSet, setColorMode } = useColorModes('coreui-free-react-admin-template-theme')
   
-  const [activeTab, setActiveTab] = useState(1)
+  const [activeTab, setActiveTab] = useState(0)
   
   const [prefacioData, setPrefacioData] = useState({
     nome: '', 
@@ -371,17 +371,17 @@ const Projeto = () => {
         </CRow>
         <hr className="w-100" />
         <CContainer fluid>
-          <MenuTabs activeIndex={activeTab - 1} onChange={(i) => setActiveTab(i + 1)} />
+          <MenuTabs activeIndex={activeTab} onChange={setActiveTab} />
           <CButton className='btn-salvar'>Salvar e Sair</CButton>
         </CContainer>
       </CHeader>
 
       <div className="background w-100 d-flex justify-content-center align-items-center flex-grow-1">
-        {activeTab === 1 && <CardPrefacio prefacio={prefacioData} setPrefacio={setPrefacioData} />}
-        {activeTab === 2 && <CardUnidades ambientes={unidadesData} setAmbientes={setUnidadesData} />}
-        {activeTab === 3 && <CardAreaComum ambientes={areacomumData} setAmbientes={setAreacomumData} />}
-        {activeTab === 4 && <CardMateriais materiais={materialData} setMateriais={setMaterialData} />}
-        {activeTab === 5 && <CardObservacoes observacoes={observacoesData} setObservacoes={setObservacoesData} />}
+        {activeTab === 0 && <CardPrefacio prefacio={prefacioData} setPrefacio={setPrefacioData} />}
+        {activeTab === 1 && <CardUnidades ambientes={unidadesData} setAmbientes={setUnidadesData} />}
+        {activeTab === 2 && <CardAreaComum ambientes={areacomumData} setAmbientes={setAreacomumData} />}
+        {activeTab === 3 && <CardMateriais materiais={materialData} setMateriais={setMaterialData} />}
+        {activeTab === 4 && <CardObservacoes observacoes={observacoesData} setObservacoes={setObservacoesData} />}
       </div>
     </div>
   )
