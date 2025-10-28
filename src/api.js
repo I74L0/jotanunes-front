@@ -1,15 +1,32 @@
-import axios from 'axios'
+let cache = null
 
-export async function login(username, password) {
-  const response = await axios.post('http://localhost/api/token/', {
-    username,
-    password,
-  })
-  const { access, refresh } = response.data
+const fetchDados = () =>
+  fetch('/dados.json')
+    .then((res) => {
+      if (!res.ok) throw new Error('Falha ao carregar /dados.json')
+      return res.json()
+    })
+    .then((d) => {
+      cache = d
+      return JSON.parse(JSON.stringify(d))
+    })
 
-  // Salva o token
-  localStorage.setItem('accessToken', access)
-  localStorage.setItem('refreshToken', refresh)
-
-  return access
+export const getDados = () => {
+  if (cache) return Promise.resolve(JSON.parse(JSON.stringify(cache)))
+  return fetchDados()
 }
+
+export const getPrefacio = () =>
+  getDados().then((d) => JSON.parse(JSON.stringify(d.prefacioData || {})))
+
+export const getUnidades = () =>
+  getDados().then((d) => JSON.parse(JSON.stringify(d.unidadesData || [])))
+
+export const getAreaComum = () =>
+  getDados().then((d) => JSON.parse(JSON.stringify(d.areacomumData || [])))
+
+export const getMateriais = () =>
+  getDados().then((d) => JSON.parse(JSON.stringify(d.materialData || [])))
+
+export const getObservacoes = () =>
+  getDados().then((d) => JSON.parse(JSON.stringify(d.observacoesData || [])))
