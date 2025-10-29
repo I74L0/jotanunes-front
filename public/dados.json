@@ -6,7 +6,9 @@
     "texto": ""
   },
   "unidadesData": [
-    { "nome": "Sala de Estar/ Jantar", "editando": false, "aberto": false, "linhas": [] },
+    { "nome": "Sala de Estar/ Jantar", "editando": false, "aberto": false, "linhas": [
+      { "item": "Piso", "descricao": "Porcelanato", "status": true }
+    ] },
     { "nome": "Circulação", "editando": false, "aberto": false, "linhas": [] },
     { "nome": "Quarto e Suíte", "editando": false, "aberto": false, "linhas": [] },
     { "nome": "Sanitário/ Lavabo", "editando": false, "aberto": false, "linhas": [] },

@@ -77,8 +77,21 @@ body {
   margin: 0;
 }
 
+.div-tabs {
+  position: relative;
+}
+
 .btn-salvar {
+  position: absolute;
+  align-self: center;
+  right: 1rem;
   border: 1px solid black;
+  transition: 0.5s;
+}
+
+.btn-salvar:hover {
+  color: white;
+  background-color: $primary;
 }
 
 @keyframes strok {
@@ -222,7 +235,7 @@ body {
 
 .wrapper {
   min-width: 600px;
-  max-width: 900px;
+  max-width: 75vw;
   margin: 0 auto;
 }
 
@@ -233,7 +246,6 @@ body {
   -webkit-transform: translateY(5px);
   transform: translateY(5px);
   margin-bottom: 5px;
-  // border-bottom: 1px solid $primary;
 
   >li {
     transition-duration: .25s;

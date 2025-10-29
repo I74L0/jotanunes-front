@@ -24,7 +24,7 @@ const MenuTabs = ({ activeIndex = 0, onChange = () => {} }) => {
   return (
     <>
       <section className="wrapper">
-        <ul className="tabs" ref={menuRef}>
+        <ul className="tabs p-0" ref={menuRef}>
           {tabTitles.map((title, index) => (
             <li 
               key={index}

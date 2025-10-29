@@ -113,7 +113,7 @@ const Projeto = () => {
         <hr className="w-100" />
         <CRow className="div-tabs w-100">
           <MenuTabs activeIndex={activeTab} onChange={setActiveTab} />
-          <CButton className="btn-salvar">Salvar e Sair</CButton>
+          <CButton className="btn-salvar">Salvar</CButton>
         </CRow>
       </CHeader>
 
