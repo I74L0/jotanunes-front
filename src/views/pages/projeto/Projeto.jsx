@@ -48,15 +48,67 @@ const Projeto = () => {
   const [materialData, setMaterialData] = useState([]);
   const [observacoesData, setObservacoesData] = useState([]);
 
+  // Estados para controle de salvamento
+  const [isSaving, setIsSaving] = useState(false);
+  const [saveError, setSaveError] = useState(null);
+
+  // Carrega os dados iniciais da API para o estado do React
   useEffect(() => {
     api.getDados().then(d => {
-      setPrefacioData(d.prefacioData)
-      setUnidadesData(d.unidadesData)
-      setAreacomumData(d.areacomumData)
-      setMaterialData(d.materialData)
-      setObservacoesData(d.observacoesData)
-    })
-  }, [])
+      // Usamos '||' para garantir que o estado não receba 'undefined'
+      setPrefacioData(d.prefacioData || { nome: '', estado: '', cidade: '', texto: '' });
+      setUnidadesData(d.unidadesData || []);
+      setAreacomumData(d.areacomumData || []);
+      setMaterialData(d.materialData || []);
+      setObservacoesData(d.observacoesData || []);
+    }).catch(error => {
+      console.error("Falha ao carregar dados:", error);
+      // Você pode definir um estado de erro aqui para mostrar na UI
+    });
+  }, [])/* --- NOVOS HANDLERS --- */
+  // Estes handlers atualizam o estado do React E o cache da API
+
+  const handlePrefacioChange = (novoPrefacio) => {
+    setPrefacioData(novoPrefacio); // 1. Atualiza o estado do React (UI)
+    api.setPrefacio(novoPrefacio); // 2. Atualiza o cache da API (para salvar)
+  };
+
+  const handleUnidadesChange = (novasUnidades) => {
+    setUnidadesData(novasUnidades);
+    api.setUnidades(novasUnidades);
+  };
+
+  const handleAreaComumChange = (novaAreaComum) => {
+    setAreacomumData(novaAreaComum);
+    api.setAreaComum(novaAreaComum);
+  };
+
+  const handleMateriaisChange = (novosMateriais) => {
+    setMaterialData(novosMateriais);
+    api.setMateriais(novosMateriais);
+  };
+
+  const handleObservacoesChange = (novasObservacoes) => {
+    setObservacoesData(novasObservacoes);
+    api.setObservacoes(novasObservacoes);
+  };
+
+  /* --- FUNÇÃO DE SALVAR --- */
+  // Esta função chama a API para persistir o cache no servidor
+  const handleSave = async () => {
+    setIsSaving(true);
+    setSaveError(null);
+    try {
+      await api.saveDados();
+      // Opcional: mostrar uma mensagem de sucesso (ex: toast)
+      console.log('Dados salvos com sucesso!'); 
+    } catch (error) {
+      console.error("Erro ao salvar:", error);
+      setSaveError(error.message || 'Falha ao salvar. Tente novamente.');
+    } finally {
+      setIsSaving(false);
+    }
+  };
 
   return (
     <div className="body bg-body-tertiary vh-100 d-flex flex-column align-items-center">
@@ -113,16 +165,19 @@ const Projeto = () => {
         <hr className="w-100" />
         <CRow className="div-tabs w-100">
           <MenuTabs activeIndex={activeTab} onChange={setActiveTab} />
-          <CButton className="btn-salvar">Salvar</CButton>
+          <CButton className="btn-salvar" onClick={handleSave} disabled={isSaving}>
+            {isSaving ? 'Salvando...' : 'Salvar Projeto'}
+          </CButton>
         </CRow>
       </CHeader>
-
+      
       <div className="background w-100 d-flex justify-content-center align-items-center flex-grow-1">
-        {activeTab === 0 && <CardPrefacio prefacio={prefacioData} setPrefacio={setPrefacioData} />}
-        {activeTab === 1 && <CardUnidades ambientes={unidadesData} setAmbientes={setUnidadesData} />}
-        {activeTab === 2 && <CardAreaComum ambientes={areacomumData} setAmbientes={setAreacomumData} />}
-        {activeTab === 3 && <CardMateriais materiais={materialData} setMateriais={setMaterialData} />}
-        {activeTab === 4 && <CardObservacoes observacoes={observacoesData} setObservacoes={setObservacoesData} />}
+        {/* Agora passamos os NOVOS handlers para os componentes filhos */}
+        {activeTab === 0 && <CardPrefacio prefacio={prefacioData} setPrefacio={handlePrefacioChange} />}
+        {activeTab === 1 && <CardUnidades ambientes={unidadesData} setAmbientes={handleUnidadesChange} />}
+        {activeTab === 2 && <CardAreaComum ambientes={areacomumData} setAmbientes={handleAreaComumChange} />}
+        {activeTab === 3 && <CardMateriais materiais={materialData} setMateriais={handleMateriaisChange} />}
+        {activeTab === 4 && <CardObservacoes observacoes={observacoesData} setObservacoes={handleObservacoesChange} />}
       </div>
     </div>
   )
